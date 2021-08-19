@@ -20,7 +20,8 @@ Knowing that the game immediately exits after the last player has left and that 
 
 ### How to fix it?
 Roblox provides a way that you can run code before the server immediately exits, game:BindToClose, you can bind any amount of functions to right before the game closes, these functions can run for at most 30 seconds before the server kills itself anyway.  
-The way we use this is to save the data for all remaining players to make sure everything is saved before we exit the server.  
+The way we use this is to save the data for all remaining players to make sure everything is saved before we exit the server.
+
 Example:
 ```lua
 function SaveData(player)
@@ -35,7 +36,7 @@ game:BindToClose(function()
 end)
 ```
 
-#### I get a weird warning in the console saying "Datastore request was added to the queue".
+##### I get a weird warning in the console saying "Datastore request was added to the queue".
 
 This is because you're making two simultaneous write requests, 1 issued by PlayerRemoving and the other one issued by BindToClose. You can safely ignore this warning because Roblox can only write to the same datastore key every 6 seconds anyway.
 
