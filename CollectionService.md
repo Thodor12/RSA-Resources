@@ -27,9 +27,7 @@ Proper lighting is nice in games, even better if your lights adapt to the day ni
 Like this you can think of thousands of possible usecases for CollectionService, there's no end to them.
 
 ## How do I start using it?
-Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](https://developer.roblox.com/en-us/api-reference/class/CollectionService).  
-
-<a href"https://developer.roblox.com/en-us/api-reference/class/CollectionService">here</a>
+Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](https://developer.roblox.com/en-us/api-reference/class/CollectionService){:target="_blank"}.
 
 Now you might be wondering, how do I actually give these instances tags, well one way is through CollectionService in the command bar like so:
 ```lua
