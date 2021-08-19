@@ -27,7 +27,9 @@ Proper lighting is nice in games, even better if your lights adapt to the day ni
 Like this you can think of thousands of possible usecases for CollectionService, there's no end to them.
 
 ## How do I start using it?
-Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](https://developer.roblox.com/en-us/api-reference/class/CollectionService){target="_blank"}.
+Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](https://developer.roblox.com/en-us/api-reference/class/CollectionService).  
+
+<a href"https://developer.roblox.com/en-us/api-reference/class/CollectionService">here</a>
 
 Now you might be wondering, how do I actually give these instances tags, well one way is through CollectionService in the command bar like so:
 ```lua
@@ -38,7 +40,7 @@ end
 This would automatically add the tag with `YourTagName` to all the instances you have selected in the explorer window.
 
 However this is not really ideal, it requires a lot of working, requires you to type out the code in the command bar all the time, etc.
-Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](https://devforum.roblox.com/t/tag-editor-plugin/101465){target="_blank"}.
+Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](https://devforum.roblox.com/t/tag-editor-plugin/101465).
 This plugin allows you to manage all the tags in your game and easily apply them to whatever instance you want.
 
 ---
