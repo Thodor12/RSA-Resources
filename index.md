@@ -66,6 +66,7 @@ title: Home
 ---
 ### P
 - [Properties](/Properties) by Thodor12
+- [Pairs VS IPairs](/PairsVSIPairs) by Pog Chonk
 
 ---
 ### Q
