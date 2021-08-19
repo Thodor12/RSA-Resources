@@ -1,5 +1,7 @@
 #### [< Back](/)
 
+---
+
 # **USE COLLECTIONSERVICE**!
 CollectionService is a really underrated service and not many people seem to know about it, on it's own it honestly doesn't even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it's versatility is amazing.
 
@@ -34,6 +36,8 @@ This would automatically add the tag with `YourTagName` to all the instances you
 However this is not really ideal, it requires a lot of working, requires you to type out the code in the command bar all the time, etc.
 Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](https://devforum.roblox.com/t/tag-editor-plugin/101465).
 This plugin allows you to manage all the tags in your game and easily apply them to whatever instance you want
+
 ---
+
 Author: Thodor12  
 Posted: 06/23/2021
