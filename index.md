@@ -11,7 +11,7 @@ title: Home
 
 ---
 ### C
-- #### [CollectionService](/CollectionService) by Thodor12
+- [CollectionService](/CollectionService) by Thodor12
 
 ---
 ### D
@@ -75,11 +75,11 @@ title: Home
 
 ---
 ### S
-- #### [Studio Widgets](/StudioWidgets) by Thodor12
+- [Studio Widgets](/StudioWidgets) by Thodor12
 
 ---
 ### T
-- #### [Task Library](/TaskLibrary) by Thodor12
+- [Task Library](/TaskLibrary) by Thodor12
 
 ---
 ### U
