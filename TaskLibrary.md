@@ -2,7 +2,7 @@
 
 ---
 
-# Task library, new wait function  
+## Task library, new wait function  
 Along with the update of the [Task Library](https://devforum.roblox.com/t/task-library-now-available/1387845), we got a new set of functions for task scheduling, along with a new and improved `wait()` function, namely `task.wait()`.
 
 This function is the new equivalent of doing `RunService.Heartbeat:Wait()` which was always considered a better option.
