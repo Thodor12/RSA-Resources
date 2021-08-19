@@ -34,6 +34,8 @@ This would automatically add the tag with `YourTagName` to all the instances you
 However this is not really ideal, it requires a lot of working, requires you to type out the code in the command bar all the time, etc.
 Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](https://devforum.roblox.com/t/tag-editor-plugin/101465).
 This plugin allows you to manage all the tags in your game and easily apply them to whatever instance you want
+
 ___
+
 Author: Thodor12  
 Posted: 06/23/2021
