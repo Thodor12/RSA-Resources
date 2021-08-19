@@ -7,7 +7,7 @@
 
 ---
 ### C
-- #### [CollectionService](/collectionservice) by Thodor12
+- #### [CollectionService](/CollectionService) by Thodor12
 
 ---
 ### D
