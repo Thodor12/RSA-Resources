@@ -71,7 +71,7 @@
 
 ---
 ### S
-
+- #### [Studio Widgets](/StudioWidgets) by Thodor12
 
 ---
 ### T
