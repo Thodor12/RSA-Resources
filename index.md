@@ -12,6 +12,7 @@ title: Home
 ---
 ### C
 - [CollectionService](/CollectionService) by Thodor12
+- [CharacterAdded](/CharacterAdded) by Thodor12
 
 ---
 ### D
