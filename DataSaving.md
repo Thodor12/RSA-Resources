@@ -35,6 +35,10 @@ game:BindToClose(function()
 end)
 ```
 
+#### I get a weird warning in the console saying "Datastore request was added to the queue".
+
+This is because you're making two simultaneous write requests, 1 issued by PlayerRemoving and the other one issued by BindToClose. You can safely ignore this warning because Roblox can only write to the same datastore key every 6 seconds anyway.
+
 ---
 
 Author: Thodor12  
