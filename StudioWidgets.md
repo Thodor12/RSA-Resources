@@ -1,3 +1,7 @@
+---
+title: Studio Widgets
+---
+
 #### [< Back](/)
 
 ---
@@ -13,5 +17,5 @@ If you ever have an issue with certain widgets not being able to show up you can
 
 ---
 
-Author: Thodor12
+Author: Thodor12  
 Posted: 08/13/2021
