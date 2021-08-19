@@ -63,7 +63,7 @@ title: Home
 
 ---
 ### P
-
+- [Properties](/Properties) by Thodor12
 
 ---
 ### Q
