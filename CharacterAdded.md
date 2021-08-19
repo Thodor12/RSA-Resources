@@ -35,7 +35,7 @@ Problem:
 Code running in StarterGui is the same as StarterCharacterScripts, the lifetime of a GUI is the same as a character (depending on whether or not ResetOnSpawn is true). This however doesn't mean you should utilize this solution as scripts here still have the potential to run the same way like StarterPlayerScripts (when ResetOnSpawn is false).
 
 Solution:  
-See usage in [StarterPlayerScripts](/CharacterAdded/#usage-in-starterplayerscripts)
+See usage in [StarterPlayerScripts](#usage-in-starterplayerscripts)
 
 ### Usage in PlayerAdded
 Problem:  
