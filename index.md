@@ -65,7 +65,7 @@ title: Home
 
 ---
 ### P
-- [Properties](/Properties) by Thodor12
+- [Properties not updating](/PropertiesNotUpdating) by Thodor12
 - [Pairs VS IPairs](/PairsVSIPairs) by Pog Chonk
 
 ---
