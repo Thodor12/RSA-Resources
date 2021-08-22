@@ -11,13 +11,13 @@ title: Home
 
 ---
 ### C
-- [CollectionService](/CollectionService) by Thodor12
-- [CharacterAdded](/CharacterAdded) by Thodor12
-- [CFrame Constructors](/CFrameConstructors) by Pog Chonk
+- [CollectionService]({% post_url 2021-06-23-collectionservice %})
+- [CharacterAdded]({% post_url 2021-05-21-characteradded %})
+- [CFrame constructors]({% post_url 2021-01-28-cframe-constructors %})
 
 ---
 ### D
-- [Data Saving](/DataSaving) by Thodor12
+- [Data saving]({% post_url 2021-05-26-data-saving %})
 
 ---
 ### E
@@ -65,8 +65,8 @@ title: Home
 
 ---
 ### P
-- [Properties not updating](/PropertiesNotUpdating) by Thodor12
-- [Pairs VS IPairs](/PairsVSIPairs) by Pog Chonk
+- [Properties not updating]({% post_url 2021-06-11-properties-not-updating %})
+- [Pairs vs ipairs]({% post_url 2021-02-20-pairs-vs-ipairs %})
 
 ---
 ### Q
@@ -78,16 +78,16 @@ title: Home
 
 ---
 ### S
-- [Studio Widgets](/StudioWidgets) by Thodor12
+- [Studio widgets not showing]({% post_url 2021-08-13-studio-widgets-not-showing %})
 
 ---
 ### T
-- [Task Library](/TaskLibrary) by Thodor12
-- [Touched](/Touched) by Thodor12
+- [Task library, new wait function]({% post_url 2021-08-15p-task-library %})
+- [Touched, how to use it]({% post_url 2021-08-20-touched-how-to-use-it %})
 
 ---
 ### U
-- [Understanding Scope](/Scope) by Pog Chonk
+- [Understanding scope]({% post_url 2021-08-17-understanding-scope %})
 
 ---
 ### V
