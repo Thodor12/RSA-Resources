@@ -6,6 +6,7 @@ layout: none
     {
       "url": "{{post.url}}",
       "title": {{post.title | jsonify}},
+      "excerpt": {{post.excerpt | strip_html | jsonify}},
       "content": {{post.content | strip_html | jsonify}},
       "author": "{{post.author}}",
       "created": "{{post.date | date_to_xmlschema}}"

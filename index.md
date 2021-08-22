@@ -2,108 +2,16 @@
 title: Home
 ---
 
-### A
+# {{ page.title }}
 
-
----
-### B
-
-
----
-### C
-- [CollectionService]({% post_url 2021-06-23-collectionservice %})
-- [CharacterAdded]({% post_url 2021-05-21-characteradded %})
-- [CFrame constructors]({% post_url 2021-01-28-cframe-constructors %})
-
----
-### D
-- [Data saving]({% post_url 2021-05-26-data-saving %})
-
----
-### E
-
-
----
-### F
-
-
----
-### G
-
-
----
-### H
-
-
----
-### I
-
-
----
-### J
-
-
----
-### K
-
-
----
-### L
-
-
----
-### M
-
-
----
-### N
-
-
----
-### O
-
-
----
-### P
-- [Properties not updating]({% post_url 2021-06-11-properties-not-updating %})
-- [Pairs vs ipairs]({% post_url 2021-02-20-pairs-vs-ipairs %})
-
----
-### Q
-
-
----
-### R
-
-
----
-### S
-- [Studio widgets not showing]({% post_url 2021-08-13-studio-widgets-not-showing %})
-
----
-### T
-- [Task library, new wait function]({% post_url 2021-08-15-task-library %})
-- [Touched, how to use it]({% post_url 2021-08-20-touched-how-to-use-it %})
-
----
-### U
-- [Understanding scope]({% post_url 2021-08-17-understanding-scope %})
-
----
-### V
-
-
----
-### W
-
-
----
-### X
-
-
----
-### Y
-
-
----
-### Z
+{% assign characters = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: "," %}
+{% for character in characters %}
+### [{{ character }}](#{{ character | downcase }})
+{% for post in site.posts %}
+{% assign titlechar = post.title | truncate: 1, "" | upcase %}
+{% if titlechar == character %}
+- [{{ post.title }}]({{ post.url }}) by {{ post.author }}
+{% endif %}
+{% endfor %}
+{% raw %}---{% endraw %}
+{% endfor %}

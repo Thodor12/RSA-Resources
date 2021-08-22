@@ -6,6 +6,7 @@ author: Pog Chonk
 
 A scope is a section of code where a variable is defined, in a valid state, and the variable is visible.  
 e.x.
+
 ```lua
 do
   local x = "banana"
