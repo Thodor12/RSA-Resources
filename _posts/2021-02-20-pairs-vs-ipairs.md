@@ -1,12 +1,8 @@
 ---
+layout: post
 title: Pairs vs IPairs
+author: Pog Chonk
 ---
-
-#### [< Back](/)
-
----
-
-## Pairs() vs IPairs()
 
 `pairs` internally uses `next` (in Base Lua, in Luau they use a custom internal iterator).  
 `pairs` works on `array`'s and `dictionary`'s since it doesn't have a determined order.
@@ -60,8 +56,3 @@ Instead of
 2 B
 ]]--
 ```
-
----
-
-Author: Pog Chonk  
-Posted: 02/20/2021

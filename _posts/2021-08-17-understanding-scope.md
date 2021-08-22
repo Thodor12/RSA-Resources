@@ -1,14 +1,9 @@
 ---
+layout: post
 title: Understanding Scope
+author: Pog Chonk
 ---
 
-#### [< Back](/)
-
----
-
-## Understanding Scope
-
-### Scope
 A scope is a section of code where a variable is defined, in a valid state, and the variable is visible.  
 e.x.
 ```lua
@@ -84,8 +79,3 @@ end
 
 print(x) --> banana
 ```
-
----
-
-Author: Pog Chonk  
-Posted: 08/17/2021

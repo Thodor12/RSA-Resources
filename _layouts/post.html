@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h4>
+    <a href="/">
+        < Back</a>
+</h4>
+
+<hr />
+
+<h1>{{ page.title }}</h1>
+
+{{ content }}
+
+<hr />
+
+<p>Author: {{ page.author }}</p>
+<p>Posted: {{ page.date | date_to_long_string: "ordinal" }}</p>

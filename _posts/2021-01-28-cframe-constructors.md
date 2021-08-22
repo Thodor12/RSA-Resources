@@ -1,12 +1,8 @@
 ---
+layout: post
 title: CFrame Constructors
+author: Pog Chonk
 ---
-
-#### [< Back](/)
-
----
-
-## CFrame.new() and CFrame.lookAt()
 
 There's 2 main constructors for `CFrame`'s. `CFrame.new()` and `CFrame.lookAt()`, these serve similar but different purposes.  
 They both have 2 arguments, except `lookAt` has 3 arguments.
@@ -43,8 +39,3 @@ UpVector -> Up
 RightVector -> Right
 -RightVector -> Left
 ```
-
----
-
-Author: Pog Chonk  
-Posted: 01/28/2021

@@ -1,13 +1,8 @@
 ---
+layout: post
 title: Touched, how to use it and it's limitations
+author: Thodor12
 ---
-
-
-#### [< Back](/)
-
----
-
-## Touched, how to use it and it's limitations
 
 Touched is an event which you can use to detect whenever a part gets touched by a different part, however people often claim this is too inaccurate and that's for a good reason.
 
@@ -59,8 +54,3 @@ The last one applies to the left side of the image, when there's practically no 
 ### How to fix these issues
 We've already named the fixes in the previous section. You have to make sure your parts are big enough and don't travel too fast so they have a chance to intersect with other parts.
 Additionally you can also make sure the parts have to be Touched are bigger, that way you can improve your chances too.
-
----
-
-Author: Thodor12  
-Posted: 20/08/2021

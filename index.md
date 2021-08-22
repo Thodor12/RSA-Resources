@@ -82,7 +82,7 @@ title: Home
 
 ---
 ### T
-- [Task library, new wait function]({% post_url 2021-08-15p-task-library %})
+- [Task library, new wait function]({% post_url 2021-08-15-task-library %})
 - [Touched, how to use it]({% post_url 2021-08-20-touched-how-to-use-it %})
 
 ---

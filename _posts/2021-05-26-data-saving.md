@@ -1,12 +1,9 @@
 ---
+layout: post
 title: Data Saving
+author: Thodor12
 ---
 
-#### [< Back](/)
-
----
-
-## Why does my data not save?
 Too often we see people that combine PlayerAdded/PlayerRemoving to make datastore saving scripts.  
 In theory this looks fine but in practice it doesn't save your data half of the time, why?
 
@@ -43,8 +40,3 @@ end)
 ##### I get a weird warning in the console saying "Datastore request was added to the queue".
 
 This is because you're making two simultaneous write requests, 1 issued by PlayerRemoving and the other one issued by BindToClose. You can safely ignore this warning because Roblox can only write to the same datastore key every 6 seconds anyway.
-
----
-
-Author: Thodor12  
-Posted: 05/26/2021

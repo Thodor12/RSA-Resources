@@ -1,12 +1,9 @@
 ---
-title: Properties
+layout: post
+title: Properties not updating
+author: Thodor12
 ---
 
-#### [< Back](/)
-
----
-
-## My text is not updating!
 Sometimes we see people that do things like setting the Text of a TextLabel recusively, wanting it to constantly update it's value based on a leaderstats value or something similar, however the GUI doesn't show a single update despite changing the value of the leaderstats.
 
 An example of this is like this:
@@ -43,8 +40,3 @@ end)
 This code will only run when a change in the value would be detected, greatly increasing the performance of the script.
 
 This example given the updating of Text is just one example, the exact same idea applies to other cases aswell.
-
----
-
-Author: Thodor12  
-Posted: 06/11/2021

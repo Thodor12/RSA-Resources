@@ -1,12 +1,9 @@
 ---
+layout: post
 title: CharacterAdded
+author: Thodor12
 ---
 
-#### [< Back](/)
-
----
-
-## Do not utilize CharacterAdded:Wait()
 Often people use
 ```lua
 local character = player.Character or player.CharacterAdded:Wait()
@@ -63,8 +60,3 @@ if not character then return end
 ```
 
 This will abort the request as soon as it sees that there is no character, instead of waiting until there is a character present.
-
----
-
-Author: Thodor12  
-Posted: 05/21/2021
