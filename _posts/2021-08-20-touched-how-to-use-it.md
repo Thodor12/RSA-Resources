@@ -32,7 +32,7 @@ When the engine calculates the intersections it just takes the current known pos
 previous frame and attempts to find intersection points.
 This means that if parts move too fast an intersection can be missed, see the image below.
 
-![When Touched fails](/images/TouchedNonWorkingCases.png)
+![When Touched fails](/assets/images/TouchedNonWorkingCases.png)
 
 For clarification the gray parts are parts with Touched listeners.  
 The black lines are trajectories of parts moving around in the workspace.

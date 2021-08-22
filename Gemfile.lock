@@ -274,7 +274,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (~> 218)
-  jekyll-remote-theme (~> 0.4.3)
   wdm (>= 0.1.0)
   webrick (~> 1.7)
 

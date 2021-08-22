@@ -4,5 +4,4 @@ gem "webrick", "~> 1.7"
 
 group :jekyll_plugins do
     gem "github-pages", "~> 218"
-    gem "jekyll-remote-theme", "~> 0.4.3"
 end

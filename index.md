@@ -2,16 +2,11 @@
 title: Home
 ---
 
-# {{ page.title }}
-
-{% assign characters = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z" | split: "," %}
-{% for character in characters %}
-### [{{ character }}](#{{ character | downcase }})
-{% for post in site.posts %}
-{% assign titlechar = post.title | truncate: 1, "" | upcase %}
-{% if titlechar == character %}
+{% assign post_groups = site.posts | group_by_exp: "item", "item.title | truncate: 1, '' | upcase" | sort: 'name' %}
+{% for post_group in post_groups %}
+### [{{ post_group.name }}](#{{ post_group.name | downcase }})
+{% for post in post_group.items %}
 - [{{ post.title }}]({{ post.url }}) by {{ post.author }}
-{% endif %}
 {% endfor %}
 {% raw %}---{% endraw %}
 {% endfor %}
