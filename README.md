@@ -11,4 +11,4 @@ Make a [Pull Request](https://github.com/PogChonk/RSA-Resources/pulls) and have 
 - `.md` (markdown file extension/file type)
 - `YYYY-MM-DD-article-name.md` (file name)
 
-If we accept your article, we will format and modify the rest to match our other articles.
+If Thodor12 or Pog Chonk finds your article acceptable/useful, we will format and modify the rest to match our other articles and merge it.
