@@ -22,7 +22,7 @@ The iterator for `ipairs` looks like..
 function iter(a, i)
     i = i + 1
     local v = a[i]
-    if v then
+    if v ~= nil then
         return i, v
     end
 end
