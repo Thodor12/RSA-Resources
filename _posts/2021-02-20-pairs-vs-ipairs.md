@@ -7,7 +7,7 @@ author: Pog Chonk
 `pairs` internally uses `next` (in Base Lua, in Luau they use a custom internal iterator).  
 `pairs` works on `array`'s and `dictionary`'s since it doesn't have a determined order.
 
-`ipairs` numerically indices the table (`0, 1, 2, ..., n`: where `n` is the length of the table), which is why it only works on tables with numeric indices (or array's).  
+`ipairs` numerically indices the table (`1, 2, 3, ..., n`: where `n` is the length of the table), which is why it only works on tables with numeric indices (or array's).  
 `ipairs` **STOPS** on `nil` values.
 
 The iterator for `pairs` looks like.. (in Vanilla Lua, we don't know about Luau because they haven't released their internal iterator)
