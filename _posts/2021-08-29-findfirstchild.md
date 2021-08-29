@@ -38,6 +38,6 @@ In some rare cases it's actually possible that it would take more than 5 seconds
 Note that this warning is not thrown when you provide the timeout parameter.
 
 ## API references
-You can read more on the individual methods here:"
-https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild
-https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild
+You can read more on the individual methods here:  
+https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild  
+https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild  
