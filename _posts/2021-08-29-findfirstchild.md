@@ -39,5 +39,5 @@ Note that this warning is not thrown when you provide the timeout parameter.
 
 ## API references
 You can read more on the individual methods here:  
-https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild  
-https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild  
+[https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild](https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild)  
+[https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild](https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild)  
