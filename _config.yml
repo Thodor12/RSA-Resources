@@ -1,2 +1,8 @@
 title: Roblox Script Assistance - Resources
-theme: jekyll-theme-slate
+invite_link: https://discord.com/invite/rsa
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+plugins:
+  - jekyll-autoprefixer

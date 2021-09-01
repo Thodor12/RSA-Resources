@@ -116,11 +116,9 @@ guiObject.Visible = true
 
 ### Short circuiting with logical operators
 
-This idea of `or` and `and` only evaluating what it needs depending on the truthyness or falsyness of its operands is called **short circuiting**. Keep in mind that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**.
-
 As mentioned earlier, when the `<firstOperand>` of `or` is truthy, it’s evaluated and returned, **without evaluating the `<secondOperand>`**. And it was also mentioned, when the `<firstOperand>` of `and` is falsy, it’s evaluated and returned, without evaluating the `<secondOperand>`. This idea of `or` and `and` only evaluating what it needs depending on the truthyness or falsyness of its operands is called **short circuit evaluation** or **short circuiting**, for short. 
 
-An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. [That is, if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677)
+An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. [That is, if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677){:target="_blank"}
 
 ### Pseudo Ternary
 Some programming languages provide direct support for something called the ternary `?` operator, or ternary, for short. However, Lua(u) doesn’t. Nonetheless, you can think of the ternary as a shorthand, for using if-else statements, that operates on three operands. Here’s its general syntax:

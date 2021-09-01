@@ -4,9 +4,7 @@ layout: default
 
 <hr />
 
-<h4>
-    <a href="/">< Back to overview</a>
-</h4>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
 
 <hr />
 
@@ -14,11 +12,9 @@ layout: default
 
 <hr />
 
-<p>Author: {{ page.author }}</p>
-<p>Posted: {{ page.date | date_to_long_string: "ordinal" }}</p>
+<h6>Author: {{ page.author }}</h6>
+<h6>Posted: {{ page.date | date_to_long_string: "ordinal" | downcase }}</h6>
 
 <hr />
 
-<h4>
-    <a href="/">< Back to overview</a>
-</h4>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
