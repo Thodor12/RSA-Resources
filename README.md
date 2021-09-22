@@ -34,3 +34,5 @@ Try to keep any special formatting out of this, no code blocks. This is because 
 ### Headers
 Do not use `h1` and `h2` headers (# and ##), the header of the site is already a `h1` and the title of the post itself is a `h2`, the content itself should only include subtitles and no more main titles, so only headers from `h3` (###) and on are allowed.
 Please do not use special titlecasing like "This is My Post", following standard grammar rules (only capitalize first letter of line + names).
+
+# Test PR
