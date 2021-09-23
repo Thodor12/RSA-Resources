@@ -66,6 +66,7 @@ print(not (not (false and 15)))
 
 ### Example usage of NOT
 Let’s say you have a `guiObject` which you want to toggle its `Visible` property’s value on and off each time a `guiButton` is clicked. A naive solution would be:
+
 ```lua
 guiButton.MouseButton1Click:Connect(function()
     if guiObject.Visible then
@@ -75,13 +76,17 @@ guiButton.MouseButton1Click:Connect(function()
     end
 end)
 ```
+
 An alternative and more concise solution, however, would be:
+
 ```lua
 guiButton.MouseButton1Click:Connect(function()
     guiObject.Visible = not guiObject.Visible
 end)
 ```
-The example above would work because let’s say that the `guiObject.Visible` property’s value starts off as `true`, meaning it’s visible. If you click the `guiButton`, `not` would invert `true` and the result would be `false` because `true` is truthy. Then, the `guiObject.Visible` property’s value is set to `false`, meaning it’s invisible. If you click the `guiButton` again, `not` would invert `false` and the result would be `true` because `false` is falsy. 
+
+The example above would work because let’s say that the `guiObject.Visible` property’s value starts off as `true`, meaning it’s visible. If you click the `guiButton`, `not` would invert `true` and the result would be `false` because `true` is truthy. Then, the `guiObject.Visible` property’s value is set to `false`, meaning it’s invisible. If you click the `guiButton` again, `not` would invert `false` and the result would be `true` because `false` is falsy.
+
 ```lua
 -- guiObject.Visible’s value starts off true.
 -- FIRST CLICK:
@@ -103,6 +108,7 @@ guiObject.Visible = not false
 -- Which becomes:
 guiObject.Visible = true
 ```
+
 So as you click the `guiButton`, this pattern repeats.
 
 ### Short circuiting with logical operators
