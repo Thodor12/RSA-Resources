@@ -13,7 +13,7 @@ Since the truthyness and falsyness of values in Lua(u) should be understood befo
 
 - **Truthy** For something to be considered truthy, it must not be falsy. Examples of truthy values are numbers, strings, tables, and **anything else that's not falsy**.
 
-Do keep in mind that **the truthyness and falsyness of values vary depending on the programming language you’re working with**. That is, a value considered truthy in one programming language may be falsy in another.
+Do keep in mind that **the truthyness and falsyness of values vary depending on the programming language you’re working with**. That is, a value considered truthy in one programming language may be falsy in another and vice versa.
 
 ### What are the logical operators?
 Usually, an operator has at least one value it operates on, which are its operands. For example, in the expression `1 + 14`, `1` and `14` are the operands. And if you aren't already aware, there's three logical operators you can work with:
@@ -34,7 +34,7 @@ print(false or 15) -- Prints 15 because false is falsy.
 print(false or (16 or 15))
 ```
 
-- `<firstOperand> and <secondOperand>` Likewise to `or`, the logical and operator operates on two operands as well. The difference being that and **wants both of its operands to be truthy**. If the `<firstOperand>` is truthy, then the `<secondOperand>` is evaluated and returned. However, if the `<firstOperand>` is falsy, then it’s evaluated and returned, without evaluating the `<secondOperand>`. Here’s another set of examples:
+- `<firstOperand> and <secondOperand>` Likewise to `or`, the logical `and` operator operates on two operands as well. The difference being that `and` **wants both of its operands to be truthy**. If the `<firstOperand>` is truthy, then the `<secondOperand>` is evaluated and returned. However, if the `<firstOperand>` is falsy, then it’s evaluated and returned, without evaluating the `<secondOperand>`. Here’s another set of examples:
 
 ```lua
 -- 14 is <firstOperand>.
@@ -50,7 +50,7 @@ print(nil and 16) -- Prints nil because nil is falsy.
 print(("Cool." and "Epic.") and "You’re cool and epic!")
 ```
 
-- `not <operand>` Unlike the others, the `not` logical operator only operates a single `<operand>`. Being the simplest of them all, all not does is invert its `<operand>`.  If the `<operand>` is truthy, then not `<operand>` returns `false`. However, if the `<operand>` is falsy, then not `<operand>` returns `true`. Here’s the last set of examples:
+- `not <operand>` Unlike the others, the logical `not` operator only operates a single `<operand>`. Being the simplest of them all, all `not` does is invert its `<operand>`.  If the `<operand>` is truthy, then not `<operand>` returns `false`. However, if the `<operand>` is falsy, then not `<operand>` returns `true`. Here’s the last set of examples:
 
 ```lua
 -- 15 is <operand>.
@@ -65,12 +65,9 @@ print(not (not (false and 15)))
 ```
 
 ### Example usage of NOT
-Let’s say you have a `GuiObject` which you want to toggle its `Visible` property value on and off each time it's clicked. A naive solution would be:
-
+Let’s say you have a `guiObject` which you want to toggle its `Visible` property’s value on and off each time a `guiButton` is clicked. A naive solution would be:
 ```lua
--- Assuming guiObject is defined properly, this would work.
-guiObject.MouseButton1Click:Connect(function()
-    -- Parenthesis around the condition isn’t necessary.
+guiButton.MouseButton1Click:Connect(function()
     if guiObject.Visible then
         guiObject.Visible = false
     else
@@ -78,18 +75,13 @@ guiObject.MouseButton1Click:Connect(function()
     end
 end)
 ```
-
 An alternative and more concise solution, however, would be:
-
 ```lua
--- Assuming guiObject is defined properly, this would work.
-guiObject.MouseButton1Click:Connect(function()
+guiButton.MouseButton1Click:Connect(function()
     guiObject.Visible = not guiObject.Visible
 end)
 ```
-
-The example above would work because let’s say that the `guiObject.Visible` property’s value starts off as `true`, meaning it’s visible. If you click the `guiObject`, not would invert `true` and the result would be `false` because `true` is truthy. Then, the `guiObject.Visible` property’s value is set to `false`, meaning it’s invisible. If you click the `guiObject` again, not would invert `false` and the result would be `true` because `false` is falsy.
-
+The example above would work because let’s say that the `guiObject.Visible` property’s value starts off as `true`, meaning it’s visible. If you click the `guiButton`, `not` would invert `true` and the result would be `false` because `true` is truthy. Then, the `guiObject.Visible` property’s value is set to `false`, meaning it’s invisible. If you click the `guiButton` again, `not` would invert `false` and the result would be `true` because `false` is falsy. 
 ```lua
 -- guiObject.Visible’s value starts off true.
 -- FIRST CLICK:
@@ -110,15 +102,14 @@ guiObject.Visible = not false
 
 -- Which becomes:
 guiObject.Visible = true
-
--- So as you click the `guiObject`, this pattern repeats.
 ```
+So as you click the `guiButton`, this pattern repeats.
 
 ### Short circuiting with logical operators
 
 As mentioned earlier, when the `<firstOperand>` of `or` is truthy, it’s evaluated and returned, **without evaluating the `<secondOperand>`**. And it was also mentioned, when the `<firstOperand>` of `and` is falsy, it’s evaluated and returned, without evaluating the `<secondOperand>`. This idea of `or` and `and` only evaluating what it needs depending on the truthyness or falsyness of its operands is called **short circuit evaluation** or **short circuiting**, for short. 
 
-An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. [That is, if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677){:target="_blank"}
+An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. That is, [if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677){:target="_blank"}
 
 ### Pseudo Ternary
 Some programming languages provide direct support for something called the ternary `?` operator, or ternary, for short. However, Lua(u) doesn’t. Nonetheless, you can think of the ternary as a shorthand, for using if-else statements, that operates on three operands. Here’s its general syntax:
@@ -181,4 +172,4 @@ As an alternative solution, you can use not to invert the `<secondOperand>` or `
 #### Pseudo ternaries vs if statements
 A lot of the time if statements can be replaced by pseudo ternaries, however, this doesn’t mean that you should always do this. Overusing pseudo ternaries for the sake of reducing the amount of if statements (and for this reason, the amount of lines) is a bad practice to follow.
 
-Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, **your code its readability should generally be prioritized over its size.**
+Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, **your code's readability should generally be prioritized over its size.**
