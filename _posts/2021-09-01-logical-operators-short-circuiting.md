@@ -178,4 +178,4 @@ As an alternative solution, you can use not to invert the `<secondOperand>` or `
 #### Pseudo ternaries vs if statements
 A lot of the time if statements can be replaced by pseudo ternaries, however, this doesn’t mean that you should always do this. Overusing pseudo ternaries for the sake of reducing the amount of if statements (and for this reason, the amount of lines) is a bad practice to follow.
 
-Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, **your code's readability should generally be prioritized over its size.**
+Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, **your code its readability should generally be prioritized over its size.**
