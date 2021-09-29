@@ -10,7 +10,7 @@ This is not to be confused with `nil`, however. For the sake of explanation, we 
 
 The difference between the two comes from the way emptiness is represented in Lua. `nil` is a value that represents the absence of a value. It is possible to work with `nil` in Lua because it is a native datatype. For the sake of the analogy we will call `nil` a "tangible nothing." It is a value that we can use that represents nothing. `void` on the other hand, is an "intangible nothing." Lua does not comprehend this lack of value because it was designed to use `nil` as a lack of value. The only way to detect this nothingness is through C functions. Take this for example:
 
-```
+```lua
 local function returnsVoid()
 	-- nothing here! return instruction is auto generated.
 end
@@ -29,7 +29,7 @@ As we can see, there is a detectable difference. However, in most cases this `vo
 
 Let's reuse the functions we defined earlier for this next example.
 
-```
+```lua
 local t = {1,2,3}
 
 table.insert(t, returnsNil()) --> while generally useless, this code is safe and causes no issues.
