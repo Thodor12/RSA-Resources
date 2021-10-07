@@ -57,7 +57,7 @@ So let's create our first package! *(keep in mind that packages save into your i
 1. Right-click the script located in the **Red** part. *(or either of the three, just know that it'll be the script you'll create changes inside of)*
 2. Click `Convert to Package...` from the menu.
     - As you do that, a dialog window will appear. Fill out the **Title** to `Test Package` or anything you'd like.
-    - Press **Submit**
+    - Press **Submit**.
 3. Once you've submitted, you should see something called **PackageLink** inside the script. That's a way to know you've successfully created your own package!
 
 ### Accessing Your Packages and Inserting Them
@@ -102,7 +102,7 @@ There are two methods to updating your packages. Method 1 being updating all of 
 
 #### Method One
 1. Right-click a package that has been updated to the latest version.
-2. Click `Update All`
+2. Click `Update All`.
 3. You will see a dialog appear.
     - There are four things to discuss here. (Version, Published On, Places, and Submit/Cancel)
         - Version: Shows the current version number.
@@ -115,9 +115,9 @@ There are two methods to updating your packages. Method 1 being updating all of 
 1. Locate the outdated package ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png){:target="_blank"}
  you'd like to update.
 2. Right-click the package.
-3. Click `Get Latest Package`
+3. Click `Get Latest Package`.
 4. A prompt will appear. *(read the notice in **Committing Changes to Packages**)*
-5. Click `Get Latest`
+5. Click `Get Latest`.
 
 You've successfully updated your packages. Congrats!
 
@@ -126,7 +126,7 @@ Let's say somebody in your team, or you wanted to know what changes were made to
 1. Right-click the unpublished package **or** outdated package. *(you'll know if a package is unpublished by the orange dot ![Package-Outdated-Icon_23x22](https://user-images.githubusercontent.com/24928894/136131478-53f345b2-7d8f-47c7-8ec2-2518071bd66d.png){:target="_blank"}
 / sync ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136131465-490ad49c-88be-417f-9189-9614193de825.png){:target="_blank"}
  indicator)*
-2. Click `View Script Changes...`
+2. Click `View Script Changes...`.
 
 That was pretty simple, but what are we looking at?
     - Anything highlighted in red means that it was taken out or modified.
@@ -135,8 +135,8 @@ That was pretty simple, but what are we looking at?
 ### Conclusion
 Well it's been a long read but that covers the basics of packages. There's not much left other than reverting changes to a package(s). Let's cover what you were able to do.
 
-1. Create a package
-2. Update a package and the methods to do so
-3. View changes in a package
+1. Create a package.
+2. Update a package and the methods to do so.
+3. View changes in a package.
 
 If you have any questions regarding packages, don't be afraid to ask in the Discord. Thank you for reading and have fun programming!
