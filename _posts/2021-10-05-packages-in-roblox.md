@@ -61,7 +61,7 @@ So let's create our first package! *(keep in mind that packages save into your i
 3. Once you've submitted, you should see something called **PackageLink** inside the script. That's a way to know you've successfully created your own package!
 
 ### Accessing Your Packages and Inserting Them
-There are two places where you can access your packages, [`Toolbox`](https://developer.roblox.com/en-us/resources/studio/Toolbox) or the **Packages** folder located in [`Asset Manager`](https://developer.roblox.com/en-us/resources/studio/Asset-Manager){:target="_blank"}.
+There are two places where you can access your packages, [`Toolbox`](https://developer.roblox.com/en-us/resources/studio/Toolbox){:target="_blank"} or the **Packages** folder located in [`Asset Manager`](https://developer.roblox.com/en-us/resources/studio/Asset-Manager){:target="_blank"}.
 
 Now for our convienience, we'll be accessing our packages via **Asset Manager**. If you don't know where it is, right-click on the ribbon (if not there, Ctrl + F1), and click on **Asset Manager**.
 
@@ -112,7 +112,7 @@ There are two methods to updating your packages. Method 1 being updating all of 
 4. Submit the update.
 
 #### Method Two
-1. Locate the outdated package ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png)
+1. Locate the outdated package ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png){:target="_blank"}
  you'd like to update.
 2. Right-click the package.
 3. Click `Get Latest Package`
