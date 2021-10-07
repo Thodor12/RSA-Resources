@@ -65,7 +65,7 @@ There are two places where you can access your packages, [`Toolbox`](https://dev
 
 Now for our convienience, we'll be accessing our packages via **Asset Manager**. If you don't know where it is, right-click on the ribbon (if not there, Ctrl + F1), and click on **Asset Manager**.
 
-Access the new package inside of the **Packages** folder and you should be able to see the package that you just created. From here, delete the Scripts in the other two parts where that doesn't have a **PackageLink** inside of them and then insert the package into each part.
+Access the new package inside of the **Packages** folder and you should be able to see the package that you just created. From here, delete the scripts located in the other two parts which do not have a **PackageLink** inside of them, and then insert the package into each part.
 
 ### Committing Changes to Packages
 It doesn't matter which package you edit from as long as it's the same as the others. Now that we have multiple packages, let's figure out how to commit changes to all of the packages in the game. *(you can also update packages in other games as long they're the same and the permissions are met)*
