@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Packages What /" are they? "
+title: "Packages: What are they?"
 author: TheePBHST
 ---
 
