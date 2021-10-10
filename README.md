@@ -65,10 +65,11 @@ This makes sure that a link is always opened in a new tab as opposed to on the c
 The project can be ran locally to test if your post works as expected. You need the following installed to be able to run it.
 
 - Ruby
-    - Windows (recommended): [https://rubyinstaller.org](https://rubyinstaller.org/) (this includes RubyGems and Bundler)
+    - Windows (recommended): [https://rubyinstaller.org](https://rubyinstaller.org/) (this includes RubyGems and Bundler, make sure to get the Devkit installer to get native extensions)
     - Other: [https://www.ruby-lang.org/en/documentation/installation](https://www.ruby-lang.org/en/documentation/installation)
 - RubyGems: [https://rubygems.org/pages/download](https://rubygems.org/pages/download)
 - Bundler: [https://bundler.io/#getting-started](https://bundler.io/#getting-started)
+- Native extensions: [https://www.msys2.org/](https://www.msys2.org/)
 
 ### Preparing the project
 After cloning the project and having all the required tools installed you need to run:
