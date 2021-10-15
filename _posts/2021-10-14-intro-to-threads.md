@@ -4,7 +4,7 @@ title: Intro to threads
 author: Pog Chonk
 ---
 
-There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.
+There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.  
 
 Let's start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM ([Virtual Machine](https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines){:target="_blank"}).
 
