@@ -2,6 +2,7 @@
 layout: post
 title: Intro to threads
 author: Pog Chonk
+excerpt: "There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads."
 ---
 
 There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.  
