@@ -48,6 +48,7 @@ local thread = coroutine.create(function()
 end)
 
 coroutine.resume(thread) --> Hello World!
+-- OR
 task.spawn(thread)       --> Hello World!
 ```
 
