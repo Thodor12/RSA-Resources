@@ -77,8 +77,10 @@ Which you can then do..
 
 ```lua
 local closure = coroutine.wrap(function()
-    print("Hello World!")
-    coroutine.yield()
+    while true do
+        print("Hello World!")
+        coroutine.yield()
+    end
 end)
 
 closure() --> Hello World!
@@ -90,10 +92,15 @@ Now, you might be asking "what is `coroutine.yield()` and why is it there?"
 
 Well, the function name itself is self-explanatory. It will just yield the thread it was called in. This means that our thread is now `suspended` not `dead`. We do this because you cannot resume a dead thread. Once a thread is dead, it cannot be "revived" or resumed. Suspended threads, however, can by either calling the closure from `coroutine.wrap` or calling `coroutine.resume` passing in your thread.
 
+When a yielded thread becomes resumed, either by Roblox or manually, it will resume where it was yielded.  
+So in our case:
+
 ```lua
 local thread = coroutine.create(function()
-    print("Hello World!")
-    coroutine.yield()
+    while true do
+        print("Hello World!")
+        coroutine.yield() --// When thread is resumed, the thread execution will start here from where it was yielded.
+    end
 end)
 
 coroutine.resume(thread) --> Hello World!
