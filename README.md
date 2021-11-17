@@ -2,6 +2,7 @@
 
 This website will contain popular posts made by the community in order to easily consolidate them all in one place.
 
+Currently moderated by Thodor12 and PogChonk.
 
 # Contributing
 
