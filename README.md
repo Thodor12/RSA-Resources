@@ -1,8 +1,9 @@
 # RSA-Resources
 
 This website will contain popular posts made by the community in order to easily consolidate them all in one place.
+- It is a subdomain of https://robloxscriptassistance.org/
 
-Currently moderated by Thodor12 and PogChonk.
+This repository is currently only moderated by Thodor12 and PogChonk.
 
 # Contributing
 
