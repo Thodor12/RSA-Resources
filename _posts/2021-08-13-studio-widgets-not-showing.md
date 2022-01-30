@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Studio Widgets
+category: studio
 author: Thodor12
 ---
 

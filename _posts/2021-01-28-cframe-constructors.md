@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CFrame Constructors
+category: scripting
 author: Pog Chonk
 ---
 

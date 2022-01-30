@@ -1,0 +1,27 @@
+{% unless page.type == "all" %}
+    {%- comment -%} If the page type is not all, we use the jekyll-archive system, which contains the list of posts under page.posts {%- endcomment -%}
+    {% assign post_groups = page.posts | group_by_exp: "item", "item.title | truncate: 1, '' | upcase" | sort: "name" %}
+{% else %}
+    {%- comment -%} Else we use the standard jekyll site.posts to render all posts {%- endcomment -%}
+    {% assign post_groups = site.posts | group_by_exp: "item", "item.title | truncate: 1, '' | upcase" | sort: "name" %}
+{% endunless %}
+
+{% for post_group in post_groups %}
+<h3 id="{{ post_group.name | downcase }}"><a href="#{{ post_group.name | downcase }}" class="text-decoration-none">{{ post_group.name }}</a></h3>
+<ul class="post-list">
+{% for post in post_group.items %}
+<li>
+    <p>
+        <a href="{{ post.url }}">{{ post.title }}</a> by {{ post.author }}
+        <br/><small class="text-muted">Category: <a href="/category/{{ post.category }}" class="text-muted">{{ post.category | capitalize }}</a></small>
+        <br/><small class="text-muted">
+            Date: {{ post.date | date: "%d" }}
+            <a href="/{{ post.date | date: '%Y' }}/{{ post.date | date: '%m' }}" class="text-muted">{{ post.date | date: "%B" }}</a>
+            <a href="/{{ post.date | date: '%Y' }}" class="text-muted">{{ post.date | date: "%Y" }}</a>
+        </small>
+    </p>
+</li>
+{% endfor %}
+</ul>
+{% unless forloop.last %}<hr />{% endunless %}
+{% endfor %}

@@ -2,8 +2,7 @@
 layout: default
 ---
 
-<hr />
-
+<h2>{{ page.title }}</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
 
 <hr />
@@ -13,7 +12,8 @@ layout: default
 <hr />
 
 <h6>Author: {{ page.author }}</h6>
-<h6>Posted: {{ page.date | date_to_long_string: "ordinal" | downcase }}</h6>
+<h6>Category: {{ page.category | capitalize }}</h6>
+<h6>Date: {{ page.date | date_to_long_string }}</h6>
 
 <hr />
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CharacterAdded
+category: scripting
 author: Thodor12
 ---
 

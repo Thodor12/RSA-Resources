@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
     <head>
         <meta charset="utf-8">
         <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -12,7 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 
-        <link rel="stylesheet" type="text/css" media="screen" href="{{ "/assets/css/style.css" | relative_url }}">
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css' | relative_url }}">
 
         <!-- Init hljs -->
         <script>
@@ -20,7 +20,12 @@
             hljs.initLineNumbersOnLoad();
         </script>
 
-        {% seo %}
+        {% if page.title %}
+            <title>{{ page.title | capitalize }} | {{ site.title }}</title>
+        {% else %}
+            <title>{{ site.title }}</title>
+        {% endif %}
+        {% seo title=false %}
     </head>
 
     <body class="bg-dark">
@@ -34,7 +39,6 @@
         </header>
         <main class="pt-5 pb-5 bg-light">
             <div class="container">
-                <h1>{{ page.title }}</h1>
                 {{ content }}
             </div>
         </main>

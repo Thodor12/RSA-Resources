@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Understanding Scope
+category: scripting
 author: Pog Chonk
 ---
 

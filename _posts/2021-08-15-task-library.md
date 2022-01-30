@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Task Library
+category: studio
 author: Thodor12
 ---
 
@@ -16,3 +17,5 @@ Along with the new Find and Replace window Roblox recently introduced it's now v
 What this does it looks for all occurences of `wait(` with a couple of additional checks
 - It does not catch cases that are preceded by any other non whitespace character (means it won't alter things like variables or functions which are trailing with `wait(`
 - It does not catch cases that are preceded by a dot (this means it won't accidently overwrite any occurences of existing `task.wait(`
+
+**Note**: This same method works for all task library functions, for example if you wanted to change the occurences of `spawn` you would do: `(?<![\S\.])spawn\(` and `task.spawn(`.

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Logical operators, and their short circuiting behavior
+category: scripting
 author: steve15
 ---
 

@@ -1,0 +1,9 @@
+# Ignore everything except .gitignore
+*
+!.gitignore
+
+# But not workspace settings
+!settings.json
+!tasks.json
+!launch.json
+!extensions.json

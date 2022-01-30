@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "**/_includes/**/*.html": "jekyll",
+        "**/_layouts/**/*.html": "jekyll",
+        "**/_posts/*.md": "markdown",
+        "**/api/*.json": "jekyll",
+        "index.html": "jekyll",
+    }
+}

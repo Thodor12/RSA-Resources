@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Touched, how to use it and it's limitations
+category: scripting
 author: Thodor12
 ---
 

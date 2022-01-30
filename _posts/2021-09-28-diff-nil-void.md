@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The difference between nil and "void"
+category: scripting
 author: artblart
 ---
 
