@@ -22,6 +22,7 @@ The minimum required in order to get it to work is the following
 ---
 layout: post
 title: <post name>
+category: <category>
 author: <author name>
 ---
 ```
