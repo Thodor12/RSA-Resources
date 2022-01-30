@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Data Saving
+category: scripting
 author: Thodor12
 ---
 

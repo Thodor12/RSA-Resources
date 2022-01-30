@@ -1,0 +1,11 @@
+---
+layout: none
+---
+{% assign categories = site.posts | group_by: "category" | sort: "name" %}[
+  {% for category in categories %}{
+    "id": "{{ category.name }}",
+    "name": "{{ category.name | capitalize | jsonify }}",
+    "url": "{{ "/category/" | append: category.name | absolute_url }}",
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

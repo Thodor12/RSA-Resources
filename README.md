@@ -1,7 +1,7 @@
-# RSA-Resources
+# RDA-Resources
 
 This website will contain popular posts made by the community in order to easily consolidate them all in one place.
-- It is a subdomain of https://robloxscriptassistance.org/
+- It is a subdomain of https://robloxdevelopmentassistance.org/
 
 This repository is currently only moderated by Thodor12 and PogChonk.
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CollectionService, how to use it
+category: scripting
 author: Thodor12
 ---
 

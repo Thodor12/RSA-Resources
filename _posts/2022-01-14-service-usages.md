@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Service usages
+category: studio
 author: Thodor12
 ---
 

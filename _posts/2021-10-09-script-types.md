@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Script types
+category: studio
 author: Thodor12
 ---
 

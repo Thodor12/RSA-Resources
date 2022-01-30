@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Packages: What are they?"
+category: studio
 author: TheePBHST
 ---
 

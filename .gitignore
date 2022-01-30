@@ -1,6 +1,6 @@
-# Prevent common folders from begin committed
-.vscode
+# Prevent jekyll information from being committed
 .jekyll-cache
+.jekyll-metadata
 
 # Prevent the built site from being committed
 _site
