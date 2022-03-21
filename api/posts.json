@@ -5,7 +5,7 @@ layout: none
   {% for post in site.posts %}{
     "url": "{{post.url}}",
     "title": {{post.title | jsonify}},
-    "category": {{post.category | jsonify}}
+    "category": {{post.category | jsonify}},
     "excerpt": {{post.excerpt | strip_html | jsonify}},
     "content": {{post.content | strip_html | jsonify}},
     "author": "{{post.author}}",
