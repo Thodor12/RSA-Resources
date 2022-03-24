@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Packages: what are they? | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Packages: What are they?" />
+<meta name="author" content="TheePBHST" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As your game continues to develop and get larger in assets, you may start to realize (or not) that you have the same scripts in different assets in your game, and once you begin to lose track of these assets keeping track of them will get very difficult soon." />
+<meta property="og:description" content="As your game continues to develop and get larger in assets, you may start to realize (or not) that you have the same scripts in different assets in your game, and once you begin to lose track of these assets keeping track of them will get very difficult soon." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Packages: What are they?" />
+<script type="application/ld+json">
+{"headline":"Packages: What are they?","dateModified":"2021-10-05T00:00:00+00:00","datePublished":"2021-10-05T00:00:00+00:00","url":"/studio/2021/10/05/packages-in-roblox.html","mainEntityOfPage":{"@type":"WebPage","@id":"/studio/2021/10/05/packages-in-roblox.html"},"author":{"@type":"Person","name":"TheePBHST"},"@type":"BlogPosting","description":"As your game continues to develop and get larger in assets, you may start to realize (or not) that you have the same scripts in different assets in your game, and once you begin to lose track of these assets keeping track of them will get very difficult soon.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Packages: What are they?</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>As your game continues to develop and get larger in assets, you may start to realize (or not) that you have the same scripts in different assets in your game, and once you begin to lose track of these assets keeping track of them will get very difficult soon.</p>
+
+<p>So, how could you solve this problem? Well thankfully, Roblox has introduced us a feature called, <strong>Packages</strong>. And no, these aren’t the packages that make you look nice and strong, but these are the packages that allow you to make commits to your scripts (or even physical objects) and be able to publish to other places, update other packages, and view the changes to these packages.</p>
+
+<p>In this post, I’ll be showing you how to use packages, why should you use them, and other cases for them.</p>
+
+<p><em>disclaimer: this post was referenced off of the <a href="https://developer.roblox.com/en-us/articles/roblox-packages" target="_blank">Roblox Packages – Reusable Game Assets</a> article provided by the Roblox Developer Resources site.</em></p>
+
+<h3 id="setting-up-your-workspace">Setting Up Your Workspace</h3>
+<ol>
+  <li>Open up a new empty <strong>Baseplate</strong>. <em>(optional: set ClockTime to 0)</em></li>
+  <li>Create three new <a href="https://developer.roblox.com/en-us/api-reference/class/Part" target="_blank"><code>Parts</code></a>
+    <ul>
+      <li>Name your either of your three parts to <strong>Red</strong>, <strong>Green</strong>, and <strong>Blue</strong>. <em>(optional: space them out at least 10 studs)</em></li>
+      <li>Change the colors of the parts to either <strong>Really red</strong>,  <strong>Lime green</strong>, or <strong>Really blue</strong>.</li>
+      <li>Insert a <a href="https://developer.roblox.com/en-us/api-reference/class/SurfaceLight" target="_blank"><code>SurfaceLight</code></a> into each part and apply these changes to its properties.
+        <ul>
+          <li>Angle: 10</li>
+          <li>Brightness: 20</li>
+          <li>Range: 6</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Create a <a href="https://developer.roblox.com/en-us/api-reference/class/Script" target="_blank"><code>Script</code></a> inside of the <code>Red</code> part.</li>
+</ol>
+
+<h3 id="editing-the-example-script">Editing the Example Script</h3>
+<p>So in this new script we’ve created in the <code>Red</code> part, we’re going to add a simple piece code.</p>
+
+<pre><code class="language-lua">local Part = script.Parent
+local Light = Part.SurfaceLight
+
+Part.Color = Light.Color
+</code></pre>
+
+<p><em>simple, right?</em></p>
+
+<p>Go ahead and press <code>Run</code> (or F8) and check that the code works, if not, check the instructions below. Then copy the script and paste it into the other two parts, Green and Blue. Press <code>Run</code> again to ensure all the <strong>SurfaceLights</strong> match up with the part’s color.</p>
+
+<p>Then, in the <code>Red</code> part, open the script again and add these changes.</p>
+
+<pre><code class="language-lua">local Part = script.Parent
+local Light = Part.SurfaceLight
+
+Part.Color = Light.Color
+Part.Material = Enum.Material.Neon
+Part.Size = Vector3.new(5, 5, 5)
+</code></pre>
+
+<p>Just like before, press <code>Run</code> and ensure the code works and after that copy the modified script and overwrite the previous scripts inside of the other two parts.</p>
+
+<h3 id="creating-a-package">Creating a Package</h3>
+<p>Now that we’ve gotten the easy part out of way, you may begin to see how tedious this process could be, manually updating every script and keeping track of them. That’s why packages will come in handy when these type of situations happen as you develop your game.</p>
+
+<p>So let’s create our first package! <em>(keep in mind that packages save into your inventory)</em></p>
+<ol>
+  <li>Right-click the script located in the <strong>Red</strong> part. <em>(or either of the three, just know that it’ll be the script you’ll create changes inside of)</em></li>
+  <li>Click <code>Convert to Package...</code> from the menu.
+    <ul>
+      <li>As you do that, a dialog window will appear. Fill out the <strong>Title</strong> to <code>Test Package</code> or anything you’d like.</li>
+      <li>Press <strong>Submit</strong>.</li>
+    </ul>
+  </li>
+  <li>Once you’ve submitted, you should see something called <strong>PackageLink</strong> inside the script. That’s a way to know you’ve successfully created your own package!</li>
+</ol>
+
+<h3 id="accessing-your-packages-and-inserting-them">Accessing Your Packages and Inserting Them</h3>
+<p>There are two places where you can access your packages, <a href="https://developer.roblox.com/en-us/resources/studio/Toolbox" target="_blank"><code>Toolbox</code></a> or the <strong>Packages</strong> folder located in <a href="https://developer.roblox.com/en-us/resources/studio/Asset-Manager" target="_blank"><code>Asset Manager</code></a>.</p>
+
+<p>Now for our convienience, we’ll be accessing our packages via <strong>Asset Manager</strong>. If you don’t know where it is, right-click on the ribbon (if not there, Ctrl + F1), and click on <strong>Asset Manager</strong>.</p>
+
+<p>Access the new package inside of the <strong>Packages</strong> folder and you should be able to see the package that you just created. From here, delete the scripts located in the other two parts which do not have a <strong>PackageLink</strong> inside of them, and then insert the package into each part.</p>
+
+<h3 id="committing-changes-to-packages">Committing Changes to Packages</h3>
+<p>It doesn’t matter which package you edit from as long as it’s the same as the others. Now that we have multiple packages, let’s figure out how to commit changes to all of the packages in the game. <em>(you can also update packages in other games as long they’re the same and the permissions are met)</em></p>
+
+<p>First, let’s add some revisions to our code. Open the package and edit the code to this.</p>
+
+<pre><code class="language-lua">local Part = script.Parent
+local Light = Part.SurfaceLight
+
+Part.Color = Light.Color
+Part.Material = Enum.Material.Neon
+Part.Size = Vector3.new(5, 5, 5)
+Part.Transparency = 0.8
+
+Light.Brightness = 40
+</code></pre>
+
+<p>As you edit the code, you’ll start to see an <strong>orange dot</strong> <img src="https://user-images.githubusercontent.com/24928894/136131342-20b28a1d-cf0b-46e5-ae57-a7c81df2e652.png" alt="Package-Outdated-Icon_23x22" target="_blank" />
+ on the left of the package’s name in the <strong>Toolbox</strong>. This indicates that there has been a change made to the code and it’s most likely different from the current published version of the package.</p>
+
+<p>Exit out of the script tab and let’s start commiting these changes.</p>
+<ol>
+  <li>Right-click the edited package.</li>
+  <li>Click <code>Publish Changes to Package</code>.</li>
+  <li>A prompt will appear noticing you about the change you are about to publish.
+    <ul>
+      <li>If you don’t want to see this dialog everytime you publish a change to a package, tick the box. <em>(not recommended)</em></li>
+    </ul>
+  </li>
+  <li>Press Publish when you are ready.</li>
+</ol>
+
+<p>Congratulations, you’ve successfully published your first package.</p>
+
+<h3 id="updating-packages">Updating Packages</h3>
+<p>Once you’ve updated a package, you want to also update the other packages now that they are considered outdated <img src="https://user-images.githubusercontent.com/24928894/136132003-d13ab93b-3917-48c9-b1ac-9c04a3994886.png" alt="Package-Sync-Icon_25x22" target="_blank" />.
+There are two methods to updating your packages. Method 1 being updating all of them at once and Method 2 is updating the other packages one at a time.</p>
+
+<h4 id="method-one">Method One</h4>
+<ol>
+  <li>Right-click a package that has been updated to the latest version.</li>
+  <li>Click <code>Update All</code>.</li>
+  <li>You will see a dialog appear.
+    <ul>
+      <li>There are four things to discuss here. (Version, Published On, Places, and Submit/Cancel)
+        <ul>
+          <li>Version: Shows the current version number.</li>
+          <li>Published On: Shows when the current version was last published.</li>
+          <li>Places: These are the places that have the current package inside the game. You have the option to publish these packages in those games.</li>
+          <li>Submit/Cancel: Self-explanatory.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Submit the update.</li>
+</ol>
+
+<h4 id="method-two">Method Two</h4>
+<ol>
+  <li>Locate the outdated package <img src="https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png" alt="Package-Sync-Icon_25x22" target="_blank" />
+ you’d like to update.</li>
+  <li>Right-click the package.</li>
+  <li>Click <code>Get Latest Package</code>.</li>
+  <li>A prompt will appear. <em>(read the notice in <strong>Committing Changes to Packages</strong>)</em></li>
+  <li>Click <code>Get Latest</code>.</li>
+</ol>
+
+<p>You’ve successfully updated your packages. Congrats!</p>
+
+<h3 id="viewing-the-changes-on-a-package">Viewing the Changes on a Package</h3>
+<p>Let’s say somebody in your team, or you wanted to know what changes were made to the package. Well you can see what changes you’ve made with a few simple steps.</p>
+<ol>
+  <li>Right-click the unpublished package <strong>or</strong> outdated package. <em>(you’ll know if a package is unpublished by the orange dot <img src="https://user-images.githubusercontent.com/24928894/136131478-53f345b2-7d8f-47c7-8ec2-2518071bd66d.png" alt="Package-Outdated-Icon_23x22" target="_blank" />
+/ sync <img src="https://user-images.githubusercontent.com/24928894/136131465-490ad49c-88be-417f-9189-9614193de825.png" alt="Package-Sync-Icon_25x22" target="_blank" />
+ indicator)</em></li>
+  <li>Click <code>View Script Changes...</code>.</li>
+</ol>
+
+<p>That was pretty simple, but what are we looking at?
+    - Anything highlighted in red means that it was taken out or modified.
+    - Anything highlighted in green means it was added in or modified.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>Well it’s been a long read but that covers the basics of packages. There’s not much left other than reverting changes to a package(s). Let’s cover what you were able to do.</p>
+
+<ol>
+  <li>Create a package.</li>
+  <li>Update a package and the methods to do so.</li>
+  <li>View changes in a package.</li>
+</ol>
+
+<p>If you have any questions regarding packages, don’t be afraid to ask in the Discord. Thank you for reading and have fun programming!</p>
+
+
+<hr />
+
+<h6>Author: TheePBHST</h6>
+<h6>Category: Studio</h6>
+<h6>Date: 05 October 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

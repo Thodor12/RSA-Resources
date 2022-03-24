@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Cframe constructors | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="CFrame Constructors" />
+<meta name="author" content="Pog Chonk" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There’s 2 main constructors for CFrame’s. CFrame.new() and CFrame.lookAt(), these serve similar but different purposes. They both have 2 arguments, except lookAt has 3 arguments." />
+<meta property="og:description" content="There’s 2 main constructors for CFrame’s. CFrame.new() and CFrame.lookAt(), these serve similar but different purposes. They both have 2 arguments, except lookAt has 3 arguments." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CFrame Constructors" />
+<script type="application/ld+json">
+{"headline":"CFrame Constructors","dateModified":"2021-01-28T00:00:00+00:00","datePublished":"2021-01-28T00:00:00+00:00","url":"/scripting/2021/01/28/cframe-constructors.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/01/28/cframe-constructors.html"},"author":{"@type":"Person","name":"Pog Chonk"},"@type":"BlogPosting","description":"There’s 2 main constructors for CFrame’s. CFrame.new() and CFrame.lookAt(), these serve similar but different purposes. They both have 2 arguments, except lookAt has 3 arguments.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>CFrame Constructors</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>There’s 2 main constructors for <code>CFrame</code>’s. <code>CFrame.new()</code> and <code>CFrame.lookAt()</code>, these serve similar but different purposes.<br />
+They both have 2 arguments, except <code>lookAt</code> has 3 arguments.</p>
+
+<p>For <code>CFrame.new()</code> , the first argument being the Position (Vector3) of the CFrame. The second one being optional, which is the Position (Vector3) to have it’s LookVector face towards. If the second argument is not set, then default orientation is automatically assigned (0,0,0).<br />
+For example: <code>CFrame.new(Vector3.new(0,0,0), Vector3.new(0,10,0))</code> or <code>CFrame.new(Vector3.new(0,0,0))</code>.<br />
+The difference is that the first one sets the position <em>and</em> where to look at. The second one just sets the position and gives default orientation.</p>
+
+<p>For <code>CFrame.lookAt()</code>, the first argument being the Position (Vector3) of the CFrame. The second one <strong><em>not</em></strong> being optional, which is the Position (Vector3) to have it’s LookVector look at. The third one <em>is</em> optional though, which is the UpVector (Vector3). By default it’s <code>Vector3.new(0,1,0)</code>.<br />
+For example: <code>CFrame.lookAt(Vector3.new(1,1,1), Vector3.new(1,10,1))</code> works fine. If you remove the <code>Vector3.new(1,10,1)</code> it’ll warn you that you didn’t define a <code>lookAt</code> position and that you need to assign one.</p>
+
+<p>CFrames have 3 more properties than Vector3s. Those being <code>LookVector</code>, <code>UpVector</code>, and <code>RightVector</code> (labeled below).</p>
+
+<pre><code>-Z -&gt; Forward -&gt; CFrame.new(0,0,-1)
+Z -&gt; Backward -&gt; CFrame.new(0,0,1)
+
+Y -&gt; Up -&gt; CFrame.new(0,1,0)
+-Y -&gt; Down -&gt; CFrame.new(0,-1,0)
+
+X -&gt; Right -&gt; CFrame.new(1,0,0)
+-X -&gt; Left -&gt; CFrame.new(-1,0,0)
+</code></pre>
+
+<pre><code>All of these are some Vector3's in the range [-1,1]
+
+LookVector -&gt; Forward
+-LookVector -&gt; Backward
+
+UpVector -&gt; Up
+-UpVector -&gt; Down
+
+RightVector -&gt; Right
+-RightVector -&gt; Left
+</code></pre>
+
+
+<hr />
+
+<h6>Author: Pog Chonk</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 28 January 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

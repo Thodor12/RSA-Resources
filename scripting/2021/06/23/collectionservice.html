@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Collectionservice, how to use it | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="CollectionService, how to use it" />
+<meta name="author" content="Thodor12" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CollectionService is a really underrated service and not many people seem to know about it, on it’s own it honestly doesn’t even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it’s versatility is amazing." />
+<meta property="og:description" content="CollectionService is a really underrated service and not many people seem to know about it, on it’s own it honestly doesn’t even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it’s versatility is amazing." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CollectionService, how to use it" />
+<script type="application/ld+json">
+{"headline":"CollectionService, how to use it","dateModified":"2021-06-23T00:00:00+00:00","datePublished":"2021-06-23T00:00:00+00:00","url":"/scripting/2021/06/23/collectionservice.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/06/23/collectionservice.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"CollectionService is a really underrated service and not many people seem to know about it, on it’s own it honestly doesn’t even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it’s versatility is amazing.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>CollectionService, how to use it</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>CollectionService is a really underrated service and not many people seem to know about it, on it’s own it honestly doesn’t even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it’s versatility is amazing.</p>
+
+<h2 id="what-does-it-do">What does it do?</h2>
+<p>CollectionService does nothing more than manage <strong>tags</strong>. These tags are just basic strings that can be given to any instance in your game. Through CollectionService you can get, add, remove tags, aswell as getting all instances in the game that have a given tag. This allows you to lookup all instances in a game which contain a given tag and quickly get them back as a table in your script, this can be really helpful in scenarios where you don’t want to search through your whole game to find what you’re looking for.</p>
+
+<h2 id="examples">Examples</h2>
+<p>I will give 3 short examples of what this can be used for</p>
+
+<h3 id="kill-bricks">Kill bricks</h3>
+<p>Ah yes, we all know our classic kill bricks, you step on em, you die. Many people tend to just put a script in the part, bind a Touched listener to the part, and just copy the part along with the script over and over. However now you need to change your script, oops I have to update a hundred scripts, not ideal. CollectionService can help with this by giving all your kill bricks a certain tag, let’s say “KillBrick”, now you only need 1 script which gets all instances in the game with the given tag, iterate all of those parts and give them a Touched listener, 1 script, only 1 place to edit, all killbricks have their implementation.</p>
+
+<h3 id="getting-all-characters">Getting all characters</h3>
+<p>What if we want to quickly get all the characters, not just player characters but also NPC’s, again we can use CollectionService to give a tag to all of our humanoids in the game. For players we can do this using CharacterAdded and for our NPC’s we can give them a tag either in studio manually or whenever you create them. This allows you to later on in the code automatically find all humanoids that exist in the game with your tag, meaning you don’t need to even put all NPC’s together in a specific folder and use GetChildren() or something similar, you can just get the entire list in 1 go and be done with it.</p>
+
+<h3 id="daynight-lighting">Day/Night lighting</h3>
+<p>Proper lighting is nice in games, even better if your lights adapt to the day night cycle, this is similar to kill bricks, you can give all your lights in your game a tag, whenever the time of day changes you can simply fetch all lights in the game by using CollectionService, iterate all of them and enable or disable all lights in 1 go, only 1 script needed.</p>
+
+<p>Like this you can think of thousands of possible usecases for CollectionService, there’s no end to them.</p>
+
+<h2 id="how-do-i-start-using-it">How do I start using it?</h2>
+<p>Simple, all you have to do is include the service in your scripts using game:GetService(“CollectionService”) like you would do for any other service, you can find it’s documentation <a href="https://developer.roblox.com/en-us/api-reference/class/CollectionService" target="_blank">here</a>.</p>
+
+<p>Now you might be wondering, how do I actually give these instances tags, well one way is through CollectionService in the command bar like so:</p>
+<pre><code class="language-lua">for _, item in ipairs(game:GetService("Selection"):Get()) do 
+  game:GetService("CollectionService"):AddTag(item, "YourTagName")
+end
+</code></pre>
+<p>This would automatically add the tag with <code>YourTagName</code> to all the instances you have selected in the explorer window.</p>
+
+<p>However this is not really ideal, it requires a lot of working, requires you to type out the code in the command bar all the time, etc.
+Luckily the community isn’t stupid and thanks to tiffany352 we have an amazing plugin called the <a href="https://devforum.roblox.com/t/tag-editor-plugin/101465" target="_blank">Tag Editor</a>.
+This plugin allows you to manage all the tags in your game and easily apply them to whatever instance you want.</p>
+
+
+<hr />
+
+<h6>Author: Thodor12</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 23 June 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Findfirstchild and waitforchild | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="FindFirstChild and WaitForChild" />
+<meta name="author" content="Thodor12" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There’s some pretty big differences between FindFirstChild and WaitForChild which you have to understand in order to properly use them." />
+<meta property="og:description" content="There’s some pretty big differences between FindFirstChild and WaitForChild which you have to understand in order to properly use them." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="FindFirstChild and WaitForChild" />
+<script type="application/ld+json">
+{"headline":"FindFirstChild and WaitForChild","dateModified":"2021-08-29T00:00:00+00:00","datePublished":"2021-08-29T00:00:00+00:00","url":"/scripting/2021/08/29/findfirstchild.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/08/29/findfirstchild.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"There’s some pretty big differences between FindFirstChild and WaitForChild which you have to understand in order to properly use them.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>FindFirstChild and WaitForChild</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>There’s some pretty big differences between <code>FindFirstChild</code> and <code>WaitForChild</code> which you have to understand in order to properly use them.</p>
+
+<h2 id="findfirstchild">FindFirstChild</h2>
+<p>When using <code>FindFirstChild</code> you are not guaranteed to actually get a result, this is because it attempts to find the first child with the given name.
+If this child does not exist it returns <code>nil</code>. Note that this method also doesn’t wait for a child to appear. If the child isn’t present at the time <code>FindFirstChild</code> runs
+it’s either just not present at all, or if you assume it has to be present it could be it’s not replicated from the server yet.</p>
+
+<p>This means that constructions where you directly access the result of <code>FindFirstChild</code> like:</p>
+<pre><code class="language-lua">print(parent:FindFirstChild("Child").Name)
+</code></pre>
+<p>are not guaranteed to work and can potentially run into errors at runtime.</p>
+
+<p>You need to make sure that you properly check if the result is not nil before using the result:</p>
+<pre><code class="language-lua">local child = parent:FindFirstChild("Child")
+if child ~= nil then
+  print(child.Name)
+end
+</code></pre>
+
+<h2 id="waitforchild">WaitForChild</h2>
+<p>Unlike <code>FindFirstChild</code>, <code>WaitForChild</code> is guaranteed to always return an instance, however it yields the current thread until a child with the given name is present.</p>
+
+<p><code>WaitForChild</code> also allows you to pass a number as the second argument which defines the timeout. This means <code>WaitForChild</code> will only wait for an x amount of seconds.
+If you use this parameter then <code>WaitForChild</code> can return <code>nil</code> too, just like <code>FindFirstChild</code>.</p>
+
+<p>Additionaly <code>WaitForChild</code> also drops warnings in the output: “Infinite yield possible …”, this means <code>WaitForChild</code> has already been yielding for <strong>5</strong> seconds already without
+being able to get a result already. Most of the time this means that the instance you were expecting to load doesn’t actually exist.
+In some rare cases it’s actually possible that it would take more than 5 seconds to load.</p>
+
+<p>Note that this warning is not thrown when you provide the timeout parameter.</p>
+
+<h2 id="api-references">API references</h2>
+<p>You can read more on the individual methods here:<br />
+<a href="https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild" target="_blank">https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild</a><br />
+<a href="https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild" target="_blank">https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild</a></p>
+
+
+<hr />
+
+<h6>Author: Thodor12</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 29 August 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

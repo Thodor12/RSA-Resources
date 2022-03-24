@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Touched, how to use it and it's limitations | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Touched, how to use it and it’s limitations" />
+<meta name="author" content="Thodor12" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Touched is an event which you can use to detect whenever a part gets touched by a different part, however people often claim this is too inaccurate and that’s for a good reason." />
+<meta property="og:description" content="Touched is an event which you can use to detect whenever a part gets touched by a different part, however people often claim this is too inaccurate and that’s for a good reason." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Touched, how to use it and it’s limitations" />
+<script type="application/ld+json">
+{"headline":"Touched, how to use it and it’s limitations","dateModified":"2021-08-20T00:00:00+00:00","datePublished":"2021-08-20T00:00:00+00:00","url":"/scripting/2021/08/20/touched-how-to-use-it.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/08/20/touched-how-to-use-it.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"Touched is an event which you can use to detect whenever a part gets touched by a different part, however people often claim this is too inaccurate and that’s for a good reason.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Touched, how to use it and it's limitations</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>Touched is an event which you can use to detect whenever a part gets touched by a different part, however people often claim this is too inaccurate and that’s for a good reason.</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Like said before, Touched is an event, which means you have to use <code>:Connect</code> in order to use it, here’s an example:</p>
+<pre><code class="language-lua">local part = script.Parent
+
+part.Touched:Connect(function(otherPart)
+  print(part .. " got touched by " .. otherPart)
+end)
+</code></pre>
+<p>Now this isn’t very difficult and very simple to use, however it’s more important on what parts you set your Touched listeners on, we’ll go deeper into this at the limitations.
+Sometimes parts don’t always trigger the Touched event, take for example a part you are supposed to jump on top of,
+it’s important to to know that if you want Touched to fire more reliably you have to make bigger parts surrounding the actual part, hitbox parts.
+You do this to give Touched some more breathing room to be able to fire properly.</p>
+
+<h3 id="limitations">Limitations</h3>
+
+<p>As said before Touched isn’t perfect, but that’s most of the time due to improper usage or absurd expectations from the developer side.
+A Touched event has to rely on two or more instances intersecting during the physics calculation step of the current frame.
+That condition doesn’t seem too difficult to hit, however take into consideration that for you, the end user, everything in the game looks smooth,
+however for the engine itself that’s not the case.</p>
+
+<p>When the engine calculates the intersections it just takes the current known position of the part, it doesn’t check every viable position since the last known position in the
+previous frame and attempts to find intersection points.
+This means that if parts move too fast an intersection can be missed, see the image below.</p>
+
+<p><img src="/assets/images/TouchedNonWorkingCases.png" alt="When Touched fails" /></p>
+
+<p>For clarification the gray parts are parts with Touched listeners.<br />
+The black lines are trajectories of parts moving around in the workspace.
+The red lines are when a physics step occurs, the places where an intersection is calculated.</p>
+
+<p>Now what really goes on in this image, the black line is basically what we see, we assume by looking at the black line that we get an intersection.
+However in truth this doesn’t happen, as we explained before intersections are calculated during the physics steps (the red lines).
+The engine doesn’t take into consideration where it previously came from or the part it travelled, it only knows the current point it’s at.
+Therefore it’s possible that at the time the physics step takes place, there’s no ongoing intersection between two parts.<br />
+This can be caused by 3 common issues:</p>
+<ul>
+  <li>Too small parts</li>
+  <li>Too high velocity</li>
+  <li>No big enough intersection area</li>
+</ul>
+
+<p>In case of the first one the parts are not big enough in order to get an intersection, this goes hand in hand with the second one, velocity.
+When parts move too fast the distance between the red lines becomes longer, meaning there’s more potential for intersections to get skipped.
+The last one applies to the left side of the image, when there’s practically no intersection area (surface touch), it gives Touched almost no capability to fire.</p>
+
+<h3 id="how-to-fix-these-issues">How to fix these issues</h3>
+<p>We’ve already named the fixes in the previous section. You have to make sure your parts are big enough and don’t travel too fast so they have a chance to intersect with other parts.
+Additionally you can also make sure the parts have to be Touched are bigger, that way you can improve your chances too.</p>
+
+
+<hr />
+
+<h6>Author: Thodor12</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 20 August 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>
