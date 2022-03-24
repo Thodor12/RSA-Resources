@@ -18,12 +18,12 @@ jobs:
           cd pages
           bundle exec jekyll build
       - name: Tar static files
-        run: tar -cvf source.tar /pages/build
+        run: tar -zcvf sources.tar.gz pages/build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         if: success() && github.ref == 'refs/heads/master'
         with:
-          name: pages-static-files
+          name: Static files
           path: pages/build/
           if-no-files-found: error
   deploy:
@@ -35,11 +35,11 @@ jobs:
       - name: Download static files
         uses: actions/download-artifact@v3
         with:
-          name: pages-static-files
+          name: Static files
       - name: Untar static files
-        run: tar -xvf source.tar -C /static-files
+        run: tar -zxvf sources.tar.gz -C /build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
-          folder: static-files
+          folder: build
