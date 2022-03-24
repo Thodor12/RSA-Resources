@@ -22,7 +22,7 @@ jobs:
         run: tar -cvf source.tar /pages/build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
-        if: success() && github.ref == "refs/heads/master"
+        if: success() && github.ref == 'refs/heads/master'
         with:
           name: pages-static-files
           path: pages/build/
@@ -31,7 +31,7 @@ jobs:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     needs: build
-    if: success() && github.ref == "refs/heads/master"
+    if: success() && github.ref == 'refs/heads/master'
     steps:
       - name: Download static files
         uses: actions/download-artifact@v3
