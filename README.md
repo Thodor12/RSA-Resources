@@ -84,4 +84,5 @@ This will install all of the project dependencies defined in the `Gemfile`.
 The project is served using [Jekyll](https://jekyllrb.com/), this processes all of the files in the project and turns it into proper HTML before deploying it.
 
 In order to serve the project locally you have to run:
+`cd pages`
 `bundle exec jekyll serve`
