@@ -1,8 +1,13 @@
 ---
 layout: post
 title: Script types
-category: studio
+category: Studio
 author: Thodor12
+links: [
+    "https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer",
+    "https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471",
+    "https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json"
+]
 ---
 
 Roblox has multiple different script types, understanding the differences and where you can use them is essential for developing your games.
@@ -44,14 +49,14 @@ ModuleScripts inherit these restrictions based on what type of script they are r
 
 #### CoreScript
 Although these scripts cannot be created and are managed by Roblox, it's good to know that they exist because they also come with their own permission level
-and have a more broad API which a lot of them normal scripts cannot access, for example [CreateLocalPlayer](https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer){:target="_blank"}.
+and have a more broad API which a lot of them normal scripts cannot access, for example [CreateLocalPlayer](#link1).
 
 ### Permission levels
 Each script type comes with a different set of permissions, this is how the API distinquishes which script is able to use certain services or methods.
 For example only Scripts have access to DataStoreService and HttpService, whereas only LocalScripts can use UserInputService and ContextActionService.
 
-These permission levels can for the most part be found on the API documentation, where sometimes it says "xxxSecurity". For example on the previously shown [CreateLocalPlayer](https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer){:target="_blank"} page you can see on the top it says "LocalUserSecurity". This means it can only be called by the core or the command bar. Not inside (Local)Scripts nor plugins.
+These permission levels can for the most part be found on the API documentation, where sometimes it says "xxxSecurity". For example on the previously shown [CreateLocalPlayer](#link1) page you can see on the top it says "LocalUserSecurity". This means it can only be called by the core or the command bar. Not inside (Local)Scripts nor plugins.
 
-You can find in-depth information about all permission levels here: [https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471](https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471){:target="_blank"}
+You can find in-depth information about all permission levels [here](#link2).
 
-Additionally you can find the entire API dump here so you can quickly see the security read & write permissions that are needed for the entire API: [https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json](https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json){:target="_blank"}
+Additionally you can find the entire API dump here so you can quickly see the security read & write permissions that are needed for the entire API [here](#link3).

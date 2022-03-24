@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pairs vs IPairs
-category: scripting
+category: Scripting
 author: Pog Chonk
 ---
 

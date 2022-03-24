@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Events vs polling
-category: scripting
+category: Scripting
 author: Thodor12
 ---
 

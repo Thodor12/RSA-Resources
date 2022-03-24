@@ -21,12 +21,12 @@ The minimum required in order to get it to work is the following
 ```
 ---
 layout: post
-title: <post name>
-category: <category>
-author: <author name>
+title: {post name}
+category: {category}
+author: {author name}
 ---
 ```
-Replace `<post name>` and `<author name>` with the correct values.
+Replace `{post name}`, `{category}` and `{author name}` with the correct values.
 
 If you want to have your post hidden (not accessible, not shown on index and now presented by the JSON endpoint) then you can add `published: false` to the frontmatter block.
 
@@ -51,28 +51,41 @@ title: This is a \" title // VALID (the slash is shown)
 title: "This is a \" title" // VALID (only the quote is shown)
 ```
 
-### Post content
+If this is not done properly the Jekyll build process will fail.
+
+### HTML usage
+HTML usage is not allowed, the content must be strictly in Markdown (note that HTML content inside code blocks is not checked).
+This way we can guarantee the style is equal on all pages.
+
+### Excerpt
 The first line after the frontmatter block is the excerpt (short introduction line) of the post.
 Try to keep any special formatting out of this, no code blocks. This is because this line is used in the JSON endpoint and used for OpenGraph data, if you put a codeblock in there for example you get very strange looking OpenGraph data.
 
 ### Headers
 Do not use `h1` and `h2` headers (# and ##), the header of the site is already a `h1` and the title of the post itself is a `h2`, the content itself should only include subtitles and no more main titles, so only headers from `h3` (###) and on are allowed.
+Note that the kramdown parser is automatically configured with a header offset of 2, this means that if you use `#` it will become `h3` and `##` will become `h4`, please do not
+use the html tags directly to circumvent.
 Please do not use special titlecasing like "This is My Post", following standard grammar rules (only capitalize first letter of line + names).
 
-### Links
-When creating links we do want people to constantly navigate off the site, therefore all external links are required to have `{:target="_blank"}` behind them.
-This makes sure that a link is always opened in a new tab as opposed to on the current tab. The notation goes like this:
-`[Link name](url){:target="_blank"}`
+Posts are scanned for direct header tag usage, if present this testcase will fail.
+
+### Offsite links
+When creating offsite links they must be appended to the `links` array in the frontmatter block. All the links will automatically be appended at the bottom
+of the post, you can refer to a specific link.
+If you want to refer to specific links in the offsite navigation from elsewhere in the page, please use `[Link](#link{links index})`, where `{links index}` is the index in the array of `links`.
+On the generated page this will become a link shown like [Link](#nav1).
+
+Posts are scanned for offsite links, if not provided through `links` this testcase will fail.
 
 ## Testing locally
 The project can be ran locally to test if your post works as expected. You need the following installed to be able to run it.
 
 - Ruby
-    - Windows (recommended): [https://rubyinstaller.org](https://rubyinstaller.org/) (this includes RubyGems and Bundler, make sure to get the Devkit installer to get native extensions)
-    - Other: [https://www.ruby-lang.org/en/documentation/installation](https://www.ruby-lang.org/en/documentation/installation)
-- RubyGems: [https://rubygems.org/pages/download](https://rubygems.org/pages/download)
-- Bundler: [https://bundler.io/#getting-started](https://bundler.io/#getting-started)
-- Native extensions: [https://www.msys2.org/](https://www.msys2.org/)
+    - Windows (recommended): https://rubyinstaller.org/ (this includes RubyGems and Bundler, make sure to get the Devkit installer to get native extensions)
+    - Other: https://www.ruby-lang.org/en/documentation/installation
+- RubyGems: https://rubygems.org/pages/download
+- Bundler: https://bundler.io/#getting-started
+- Native extensions: https://www.msys2.org/
 
 ### Preparing the project
 After cloning the project and having all the required tools installed you need to run:

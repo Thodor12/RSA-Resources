@@ -1,8 +1,16 @@
 ---
 layout: post
 title: "Packages: What are they?"
-category: studio
+category: Studio
 author: TheePBHST
+links: [
+    "https://developer.roblox.com/en-us/articles/roblox-packages",
+    "https://developer.roblox.com/en-us/resources/studio/Toolbox",
+    "https://developer.roblox.com/en-us/resources/studio/Asset-Manager",
+    "https://developer.roblox.com/en-us/api-reference/class/Script",
+    "https://developer.roblox.com/en-us/api-reference/class/Part",
+    "https://developer.roblox.com/en-us/api-reference/class/SurfaceLight"
+]
 ---
 
 As your game continues to develop and get larger in assets, you may start to realize (or not) that you have the same scripts in different assets in your game, and once you begin to lose track of these assets keeping track of them will get very difficult soon.
@@ -11,18 +19,18 @@ So, how could you solve this problem? Well thankfully, Roblox has introduced us 
 
 In this post, I'll be showing you how to use packages, why should you use them, and other cases for them.
 
-*disclaimer: this post was referenced off of the [Roblox Packages – Reusable Game Assets](https://developer.roblox.com/en-us/articles/roblox-packages){:target="_blank"} article provided by the Roblox Developer Resources site.*
+*disclaimer: this post was referenced off of the [Roblox Packages – Reusable Game Assets](#link1) article provided by the Roblox Developer Resources site.*
 
 ### Setting Up Your Workspace
 1. Open up a new empty **Baseplate**. *(optional: set ClockTime to 0)*
-2. Create three new [`Parts`](https://developer.roblox.com/en-us/api-reference/class/Part){:target="_blank"}
+2. Create three new [`Parts`](#link5)
     - Name your either of your three parts to **Red**, **Green**, and **Blue**. *(optional: space them out at least 10 studs)*
     - Change the colors of the parts to either **Really red**,  **Lime green**, or **Really blue**.
-    - Insert a [`SurfaceLight`](https://developer.roblox.com/en-us/api-reference/class/SurfaceLight){:target="_blank"} into each part and apply these changes to its properties.
+    - Insert a [`SurfaceLight`](#link6) into each part and apply these changes to its properties.
         - Angle: 10
         - Brightness: 20
         - Range: 6
-3. Create a [`Script`](https://developer.roblox.com/en-us/api-reference/class/Script){:target="_blank"} inside of the `Red` part.
+3. Create a [`Script`](#link4) inside of the `Red` part.
 
 ### Editing the Example Script
 So in this new script we've created in the `Red` part, we're going to add a simple piece code.
@@ -62,7 +70,7 @@ So let's create our first package! *(keep in mind that packages save into your i
 3. Once you've submitted, you should see something called **PackageLink** inside the script. That's a way to know you've successfully created your own package!
 
 ### Accessing Your Packages and Inserting Them
-There are two places where you can access your packages, [`Toolbox`](https://developer.roblox.com/en-us/resources/studio/Toolbox){:target="_blank"} or the **Packages** folder located in [`Asset Manager`](https://developer.roblox.com/en-us/resources/studio/Asset-Manager){:target="_blank"}.
+There are two places where you can access your packages, [`Toolbox`](#link2) or the **Packages** folder located in [`Asset Manager`](#link3).
 
 Now for our convienience, we'll be accessing our packages via **Asset Manager**. If you don't know where it is, right-click on the ribbon (if not there, Ctrl + F1), and click on **Asset Manager**.
 
@@ -85,7 +93,7 @@ Part.Transparency = 0.8
 Light.Brightness = 40
 ```
 
-As you edit the code, you'll start to see an **orange dot** ![Package-Outdated-Icon_23x22](https://user-images.githubusercontent.com/24928894/136131342-20b28a1d-cf0b-46e5-ae57-a7c81df2e652.png){:target="_blank"}
+As you edit the code, you'll start to see an **orange dot** ![Package-Outdated-Icon_23x22](https://user-images.githubusercontent.com/24928894/136131342-20b28a1d-cf0b-46e5-ae57-a7c81df2e652.png)
  on the left of the package's name in the **Toolbox**. This indicates that there has been a change made to the code and it's most likely different from the current published version of the package.
 
 Exit out of the script tab and let's start commiting these changes.
@@ -98,7 +106,7 @@ Exit out of the script tab and let's start commiting these changes.
 Congratulations, you've successfully published your first package.
 
 ### Updating Packages
-Once you've updated a package, you want to also update the other packages now that they are considered outdated ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132003-d13ab93b-3917-48c9-b1ac-9c04a3994886.png){:target="_blank"}.
+Once you've updated a package, you want to also update the other packages now that they are considered outdated ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132003-d13ab93b-3917-48c9-b1ac-9c04a3994886.png).
 There are two methods to updating your packages. Method 1 being updating all of them at once and Method 2 is updating the other packages one at a time.
 
 #### Method One
@@ -113,7 +121,7 @@ There are two methods to updating your packages. Method 1 being updating all of 
 4. Submit the update.
 
 #### Method Two
-1. Locate the outdated package ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png){:target="_blank"}
+1. Locate the outdated package ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136132573-6a3eab06-902a-4883-82f9-2ad0b0887f56.png)
  you'd like to update.
 2. Right-click the package.
 3. Click `Get Latest Package`.
@@ -124,8 +132,7 @@ You've successfully updated your packages. Congrats!
 
 ### Viewing the Changes on a Package
 Let's say somebody in your team, or you wanted to know what changes were made to the package. Well you can see what changes you've made with a few simple steps.
-1. Right-click the unpublished package **or** outdated package. *(you'll know if a package is unpublished by the orange dot ![Package-Outdated-Icon_23x22](https://user-images.githubusercontent.com/24928894/136131478-53f345b2-7d8f-47c7-8ec2-2518071bd66d.png){:target="_blank"}
-/ sync ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136131465-490ad49c-88be-417f-9189-9614193de825.png){:target="_blank"}
+1. Right-click the unpublished package **or** outdated package. *(you'll know if a package is unpublished by the orange dot ![Package-Outdated-Icon_23x22](https://user-images.githubusercontent.com/24928894/136131478-53f345b2-7d8f-47c7-8ec2-2518071bd66d.png) / sync ![Package-Sync-Icon_25x22](https://user-images.githubusercontent.com/24928894/136131465-490ad49c-88be-417f-9189-9614193de825.png)
  indicator)*
 2. Click `View Script Changes...`.
 

@@ -1,14 +1,19 @@
 ---
 layout: post
 title: Intro to threads
-category: scripting
+category: Scripting
 author: Pog Chonk
 excerpt: "There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads."
+links: [
+    "https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines",
+    "https://en.wikipedia.org/wiki/Actor_model",
+    "https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine",
+]
 ---
 
 There's a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.  
   
-Let's start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM ([Virtual Machine](https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines){:target="_blank"}).
+Let's start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM ([Virtual Machine](#link1)).
 
 ### How do threads work?
 
@@ -25,11 +30,11 @@ The first thread gets thread execution and executes until it *yields*, when it y
 
 In this example you can see that `Thread #1` was executing, it yielded, then passed execution over to `Thread #2`, it yielded or finished executing (died), and then passed execution back over to `Thread #1` to finish executing.
 
-###### Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the [Actor Model](https://en.wikipedia.org/wiki/Actor_model){:target="_blank"}.
+###### Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the [Actor Model](#link2).
 
 ### How do you make and run a thread?
 
-In Luau, there are multiple ways of creating and running threads. In our case, we're going to focus on [coroutines](https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine){:target="_blank"}.
+In Luau, there are multiple ways of creating and running threads. In our case, we're going to focus on [coroutines](#link3).
 
 Coroutines are the most common ways of creating a thread.
 Simply by:

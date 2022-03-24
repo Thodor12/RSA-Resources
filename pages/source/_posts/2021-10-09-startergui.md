@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using StarterGui
-category: scripting
+category: Scripting
 author: Thodor12
 ---
 

@@ -1,8 +1,12 @@
 ---
 layout: post
 title: Logical operators, and their short circuiting behavior
-category: scripting
+category: Scripting
 author: steve15
+links: [
+    "https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677",
+    "https://luau-lang.org/syntax#if-then-else-expressions"
+]
 ---
 
 A key part into learning how to use pseudo ternaries in Lua(u) is understanding how each part of it works, and this was written especially for that. But, before we get into the workings of logical operators and their short circuiting behavior, the truthyness and falsyness of values needs to be covered first.
@@ -116,9 +120,11 @@ So as you click the `guiButton`, this pattern repeats.
 
 As mentioned earlier, when the `<firstOperand>` of `or` is truthy, it’s evaluated and returned, **without evaluating the `<secondOperand>`**. And it was also mentioned, when the `<firstOperand>` of `and` is falsy, it’s evaluated and returned, without evaluating the `<secondOperand>`. This idea of `or` and `and` only evaluating what it needs depending on the truthyness or falsyness of its operands is called **short circuit evaluation** or **short circuiting**, for short. 
 
-An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. That is, [if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677){:target="_blank"}
+An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. That is, [if-elseif statements can also short circuit their conditions.](#link1)
 
 ### Pseudo Ternary
+**IMPORTANT UPDATE: Roblox now officially supports ternary like operations, see [here](#link2)**
+
 Some programming languages provide direct support for something called the ternary `?` operator, or ternary, for short. However, Lua(u) doesn’t. Nonetheless, you can think of the ternary as a shorthand, for using if-else statements, that operates on three operands. Here’s its general syntax:
 
 ```lua

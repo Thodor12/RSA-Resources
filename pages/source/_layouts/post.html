@@ -1,20 +1,22 @@
 ---
 layout: default
 ---
-
 <h2>{{ page.title }}</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 {{ content }}
-
+{% if page.links.size > 0 %}
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    {% for link in page.links %}
+        <li id="link{{ forloop.index }}"><a href="{{ link }}">{{ link }}</a></li>
+    {% endfor %}
+    </ol>
+{% endif %}
 <hr />
-
 <h6>Author: {{ page.author }}</h6>
 <h6>Category: {{ page.category | capitalize }}</h6>
 <h6>Date: {{ page.date | date_to_long_string }}</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>

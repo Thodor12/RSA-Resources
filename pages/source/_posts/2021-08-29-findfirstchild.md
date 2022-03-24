@@ -1,8 +1,12 @@
 ---
 layout: post
 title: FindFirstChild and WaitForChild
-category: scripting
+category: Scripting
 author: Thodor12
+links: [
+    "https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild",
+    "https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild"
+]
 ---
 
 There's some pretty big differences between `FindFirstChild` and `WaitForChild` which you have to understand in order to properly use them.
@@ -37,8 +41,3 @@ being able to get a result already. Most of the time this means that the instanc
 In some rare cases it's actually possible that it would take more than 5 seconds to load.
 
 Note that this warning is not thrown when you provide the timeout parameter.
-
-## API references
-You can read more on the individual methods here:  
-[https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild](https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild){:target="_blank"}  
-[https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild](https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild){:target="_blank"}  

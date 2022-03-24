@@ -4,6 +4,10 @@
         "**/_layouts/**/*.html": "jekyll",
         "**/_posts/*.md": "markdown",
         "**/api/*.json": "jekyll",
+        "**/assets/css/style.scss": "jekyll",
         "index.html": "jekyll",
-    }
+    },
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
 }
