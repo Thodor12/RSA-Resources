@@ -37,8 +37,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Static files
-      - name: Untar static files
-        run: tar -zxvf sources.tar.gz -C /build
+          path: build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
