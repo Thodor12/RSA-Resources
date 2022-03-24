@@ -22,7 +22,7 @@ jobs:
         run: tar -zcvf sources.tar.gz pages/build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
-        if: success() || failure()
+        if: success()
         with:
           name: Static files
           path: pages/build/
