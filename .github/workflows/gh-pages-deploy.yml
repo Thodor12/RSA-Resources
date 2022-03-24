@@ -11,7 +11,6 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1.1
           bundler-cache: true
           working-directory: pages
       - name: Build static files
