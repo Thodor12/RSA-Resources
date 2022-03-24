@@ -11,7 +11,7 @@ links: [
 
 There's some pretty big differences between `FindFirstChild` and `WaitForChild` which you have to understand in order to properly use them.
 
-## FindFirstChild
+# FindFirstChild
 When using `FindFirstChild` you are not guaranteed to actually get a result, this is because it attempts to find the first child with the given name.
 If this child does not exist it returns `nil`. Note that this method also doesn't wait for a child to appear. If the child isn't present at the time `FindFirstChild` runs
 it's either just not present at all, or if you assume it has to be present it could be it's not replicated from the server yet.
@@ -30,7 +30,7 @@ if child ~= nil then
 end
 ```
 
-## WaitForChild
+# WaitForChild
 Unlike `FindFirstChild`, `WaitForChild` is guaranteed to always return an instance, however it yields the current thread until a child with the given name is present.
 
 `WaitForChild` also allows you to pass a number as the second argument which defines the timeout. This means `WaitForChild` will only wait for an x amount of seconds.

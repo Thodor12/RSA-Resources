@@ -11,7 +11,7 @@ links: [
 
 CollectionService is a really underrated service and not many people seem to know about it, on it's own it honestly doesn't even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it's versatility is amazing.
 
-## What does it do?
+# What does it do?
 CollectionService does nothing more than manage **tags**. These tags are just basic strings that can be given to any instance in your game. Through CollectionService you can get, add, remove tags, aswell as getting all instances in the game that have a given tag. This allows you to lookup all instances in a game which contain a given tag and quickly get them back as a table in your script, this can be really helpful in scenarios where you don't want to search through your whole game to find what you're looking for.
 
 ## Examples
@@ -28,7 +28,7 @@ Proper lighting is nice in games, even better if your lights adapt to the day ni
 
 Like this you can think of thousands of possible usecases for CollectionService, there's no end to them.
 
-## How do I start using it?
+# How do I start using it?
 Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](#link1).
 
 Now you might be wondering, how do I actually give these instances tags, well one way is through CollectionService in the command bar like so:

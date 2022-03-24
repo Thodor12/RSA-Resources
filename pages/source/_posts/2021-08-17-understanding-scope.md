@@ -18,7 +18,7 @@ end
 print(x) --> nil
 ```
 
-### Global VS Local Variables
+# Global VS Local Variables
 A local variable has the lifetime of the scope they're declared in and are locked to that scope and inner scopes.  
 A global variables lifetime is the time the script is running; it is not locked to any scope.  
 e.x.
@@ -49,7 +49,7 @@ foo = function()          -- foo = function()
 end                       -- end
 ```
 
-### Nesting Scopes
+# Nesting Scopes
 ```lua
 do
   local x = "banana"
@@ -67,7 +67,7 @@ end
 print(x, y, z, t) --> nil  apple  nil  pear
 ```
 
-### Shadowing
+# Shadowing
 Shadowing a variable is when you redefine what the value is later down in the same scope or an inner scope and results in unwanted behavior. A reason why `globals` should be avoided.
 
 e.x. You have a variable `x` and you define another one in a different scope `y`, but you named it `x` instead.

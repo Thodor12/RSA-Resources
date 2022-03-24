@@ -5,7 +5,7 @@ category: Studio
 author: Thodor12
 ---
 
-## Problems with Studio widgets not showing up?
+# Problems with Studio widgets not showing up?
 If you ever have an issue with certain widgets not being able to show up you can check the following things:
 
 1. Make sure you actually have the widget enabled. In the menu go to View tab and check if the required widget is enabled.

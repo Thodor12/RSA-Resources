@@ -7,7 +7,7 @@ author: Thodor12
 
 Roblox is an event-driven system, but what does this entail exactly?
 
-### Event-driven vs polling
+# Event-driven vs polling
 What does this mean exactly?
 
 - Event-driven is when you rely on events to trigger certain pieces of code, for example callback functions.
@@ -16,7 +16,7 @@ What does this mean exactly?
 Just from reading that it shouldn't be hard to guess that event-driven solutions are better because it simply won't require continuous checks.
 However do note in some cases a polling system is necessary whether you like it or not.
 
-### But how do I use events?
+# But how do I use events?
 Say you need to update your text on a GUI based on a leaderstats value.
 A polling example would look something like this:
 

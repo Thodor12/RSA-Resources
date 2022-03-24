@@ -12,10 +12,10 @@ links: [
 
 Roblox has multiple different script types, understanding the differences and where you can use them is essential for developing your games.
 
-### All script types
+# All script types
 Roblox has three main script types that you need to know:
 
-#### Script
+## Script
 The first one is the simple Script, also sometimes referred to as ServerScript or NormalScript.
 These scripts run on the server, indepently of all clients. They start running as soon a server is started.
 
@@ -24,7 +24,7 @@ Scripts can run in the following places:
 - Players (inside a specific player, for example the backpack)
 - ServerScriptService
 
-#### LocalScript
+## LocalScript
 A LocalScript is the opposite of your regular Script, this one runs on the client (per player) as opposed to the server.
 These scripts are able to access `game:GetService("Players").LocalPlayer` to know which client (player) the script is running for.
 
@@ -39,7 +39,7 @@ LocalScripts also have two services that they are unable to read/access:
 
 Both of these services are not replicated to the client and thus the client can't see anything in these services.
 
-#### ModuleScript
+## ModuleScript
 ModuleScripts are a special case, these scripts cannot run on their own and have to be `require`d by either a Script or a LocalScript in order to run.
 It doesn't matter where you save these scripts but the general consensus is to put them either inside ServerStorage or ReplicatedStorage, the only thing that matters
 is that the script which is supposed to `require` the module can actually access it (for example LocalScripts cannot require modules inside ServerStorage, as they cannot see this service).
@@ -47,11 +47,11 @@ is that the script which is supposed to `require` the module can actually access
 As discussed before both script types also have some restrictions on what they are able to do (for example LocalPlayer).
 ModuleScripts inherit these restrictions based on what type of script they are required by, we'll delve deeper into this in the next section.
 
-#### CoreScript
+## CoreScript
 Although these scripts cannot be created and are managed by Roblox, it's good to know that they exist because they also come with their own permission level
 and have a more broad API which a lot of them normal scripts cannot access, for example [CreateLocalPlayer](#link1).
 
-### Permission levels
+# Permission levels
 Each script type comes with a different set of permissions, this is how the API distinquishes which script is able to use certain services or methods.
 For example only Scripts have access to DataStoreService and HttpService, whereas only LocalScripts can use UserInputService and ContextActionService.
 

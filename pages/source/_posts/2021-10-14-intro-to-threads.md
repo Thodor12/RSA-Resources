@@ -15,7 +15,7 @@ There's a lot of misconceptions about threads in Lua(u). This article will expla
   
 Let's start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM ([Virtual Machine](#link1)).
 
-### How do threads work?
+# How do threads work?
 
 In Lua, threads are ran concurrently not in parallel. This is the biggest misconception. Well, what's the difference?
 
@@ -30,9 +30,9 @@ The first thread gets thread execution and executes until it *yields*, when it y
 
 In this example you can see that `Thread #1` was executing, it yielded, then passed execution over to `Thread #2`, it yielded or finished executing (died), and then passed execution back over to `Thread #1` to finish executing.
 
-###### Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the [Actor Model](#link2).
+#### Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the [Actor Model](#link2).
 
-### How do you make and run a thread?
+# How do you make and run a thread?
 
 In Luau, there are multiple ways of creating and running threads. In our case, we're going to focus on [coroutines](#link3).
 
@@ -115,7 +115,7 @@ coroutine.resume(thread) --> Hello World!
 coroutine.resume(thread) --> Hello World!
 ```
 
-### Why multiple threads in one script?
+# Why multiple threads in one script?
 
 Threads are useful for when you want blocking code to execute differently from the rest of your code. An example could be an infite `while true do` loop that constantly checks for a condition while the rest of your executes normally, not being blocked.
 
