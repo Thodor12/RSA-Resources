@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Understanding scope | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Understanding Scope" />
+<meta name="author" content="Pog Chonk" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A scope is a section of code where a variable is defined, in a valid state, and the variable is visible. e.x." />
+<meta property="og:description" content="A scope is a section of code where a variable is defined, in a valid state, and the variable is visible. e.x." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-17T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Understanding Scope" />
+<script type="application/ld+json">
+{"headline":"Understanding Scope","dateModified":"2021-08-17T00:00:00+02:00","datePublished":"2021-08-17T00:00:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/08/17/understanding-scope.html"},"author":{"@type":"Person","name":"Pog Chonk"},"@type":"BlogPosting","url":"/scripting/2021/08/17/understanding-scope.html","description":"A scope is a section of code where a variable is defined, in a valid state, and the variable is visible. e.x.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Understanding Scope</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>A scope is a section of code where a variable is defined, in a valid state, and the variable is visible.<br />
+e.x.</p>
+
+<pre><code class="language-lua">do
+  local x = "banana"
+             --| X was declared in this scope, cannot be accessed in outer scopes, but can be accessed in inner scopes.
+  print(x) --&gt; banana
+end
+
+print(x) --&gt; nil
+</code></pre>
+
+<h3 id="global-vs-local-variables">Global VS Local Variables</h3>
+<p>A local variable has the lifetime of the scope they’re declared in and are locked to that scope and inner scopes.<br />
+A global variables lifetime is the time the script is running; it is not locked to any scope.<br />
+e.x.</p>
+<pre><code class="language-lua">do
+  local x = "banana" -- Local Variable
+  -- X's lifetime is dependent on this scope since it's declared here.
+  y = "apple" -- Global Variable
+  -- Y's lifetime is only dependent on the runtime of the script.
+end
+
+print(x) --&gt; nil
+print(y) --&gt; apple
+</code></pre>
+
+<p>This applies with functions too, functions declared via <code>local function foo()</code> is <em>almost</em> like doing <code>local foo = function() end</code>.<br />
+e.x.</p>
+<pre><code class="language-lua">local function foo()      --  function foo()
+                          --
+end                       --  end
+
+-- Similar too
+
+local foo
+foo = function()          -- foo = function()
+                          --
+end                       -- end
+</code></pre>
+
+<h3 id="nesting-scopes">Nesting Scopes</h3>
+<pre><code class="language-lua">do
+  local x = "banana"
+  y = "apple"
+
+  do
+    local z = "tomato"
+    t = "pear"
+    print(x, y, z, t) --&gt; banana  apple  tomato  pear
+  end
+
+  print(x, y, z, t) --&gt; banana  apple  nil  pear
+end
+
+print(x, y, z, t) --&gt; nil  apple  nil  pear
+</code></pre>
+
+<h3 id="shadowing">Shadowing</h3>
+<p>Shadowing a variable is when you redefine what the value is later down in the same scope or an inner scope and results in unwanted behavior. A reason why <code>globals</code> should be avoided.</p>
+
+<p>e.x. You have a variable <code>x</code> and you define another one in a different scope <code>y</code>, but you named it <code>x</code> instead.</p>
+<pre><code class="language-lua">local x = "banana"
+
+do
+  local x = "apple"
+  print(x, y) --&gt; apple (expected banana)  nil (expected apple - shadowed outer variable `x`)
+end
+
+print(x) --&gt; banana
+</code></pre>
+
+
+<hr />
+
+<h6>Author: Pog Chonk</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 17 August 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

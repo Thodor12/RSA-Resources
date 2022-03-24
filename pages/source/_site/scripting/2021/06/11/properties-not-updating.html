@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Properties not updating | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Properties not updating" />
+<meta name="author" content="Thodor12" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sometimes we see people that do things like setting the Text of a TextLabel recusively, wanting it to constantly update it’s value based on a leaderstats value or something similar, however the GUI doesn’t show a single update despite changing the value of the leaderstats." />
+<meta property="og:description" content="Sometimes we see people that do things like setting the Text of a TextLabel recusively, wanting it to constantly update it’s value based on a leaderstats value or something similar, however the GUI doesn’t show a single update despite changing the value of the leaderstats." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-11T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Properties not updating" />
+<script type="application/ld+json">
+{"headline":"Properties not updating","dateModified":"2021-06-11T00:00:00+02:00","datePublished":"2021-06-11T00:00:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/06/11/properties-not-updating.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","url":"/scripting/2021/06/11/properties-not-updating.html","description":"Sometimes we see people that do things like setting the Text of a TextLabel recusively, wanting it to constantly update it’s value based on a leaderstats value or something similar, however the GUI doesn’t show a single update despite changing the value of the leaderstats.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Properties not updating</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>Sometimes we see people that do things like setting the Text of a TextLabel recusively, wanting it to constantly update it’s value based on a leaderstats value or something similar, however the GUI doesn’t show a single update despite changing the value of the leaderstats.</p>
+
+<p>An example of this is like this:</p>
+
+<pre><code class="language-lua">local value = game.Players.LocalPlayer.leaderstats.MyLeaderStat.Value
+
+while true do
+  game.Players.LocalPlayer.PlayerGui.MyLeaderstatsGui.TextLabel.Text = value
+  wait()
+end
+</code></pre>
+
+<p>If you have code like this the text will never update because the variable called <code>value</code> will always contain the same value, the one it got when the script started running.
+Luckily there’s an easy way to solve this. It’s better when you keep the leaderstats value object itself in a variable and instead check the <code>.Value</code> everytime the loop runs, example:</p>
+<pre><code class="language-lua">local myLeaderStatsObject = game.Players.LocalPlayer.leaderstats.MyLeaderStat
+
+while true do
+  game.Players.LocalPlayer.PlayerGui.MyLeaderstatsGui.TextLabel.Text = myLeaderStatsObject.Value
+  wait()
+end
+</code></pre>
+
+<p>This will work just fine, however we can improve it one step further, generally it’s not even needed to put things like this in a while loop, it’s just wasted performance, you’re running this code even if there are no updates in the value, this can be solved if we use a Changed listener on the leaderstats values, example:</p>
+<pre><code class="language-lua">local myLeaderStatsObject = game.Players.LocalPlayer.leaderstats.MyLeaderStat
+
+myLeaderStatsObject.Changed:Connect(function(value)
+  game.Players.LocalPlayer.PlayerGui.MyLeaderstatsGui.TextLabel.Text = value
+end)
+</code></pre>
+
+<p>This code will only run when a change in the value would be detected, greatly increasing the performance of the script.</p>
+
+<p>This example given the updating of Text is just one example, the exact same idea applies to other cases aswell.</p>
+
+
+<hr />
+
+<h6>Author: Thodor12</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 11 June 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

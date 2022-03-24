@@ -3,4 +3,4 @@
 .jekyll-metadata
 
 # Prevent the built site from being committed
-_site
+pages/build
