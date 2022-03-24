@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Data saving | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Data Saving" />
+<meta name="author" content="Thodor12" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Too often we see people that combine PlayerAdded/PlayerRemoving to make datastore saving scripts. In theory this looks fine but in practice it doesn’t save your data half of the time, why?" />
+<meta property="og:description" content="Too often we see people that combine PlayerAdded/PlayerRemoving to make datastore saving scripts. In theory this looks fine but in practice it doesn’t save your data half of the time, why?" />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-26T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Data Saving" />
+<script type="application/ld+json">
+{"headline":"Data Saving","dateModified":"2021-05-26T00:00:00+02:00","datePublished":"2021-05-26T00:00:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/05/26/data-saving.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","url":"/scripting/2021/05/26/data-saving.html","description":"Too often we see people that combine PlayerAdded/PlayerRemoving to make datastore saving scripts. In theory this looks fine but in practice it doesn’t save your data half of the time, why?","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Data Saving</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>Too often we see people that combine PlayerAdded/PlayerRemoving to make datastore saving scripts.<br />
+In theory this looks fine but in practice it doesn’t save your data half of the time, why?</p>
+
+<h3 id="when-does-the-game-exit">When does the game exit?</h3>
+<p>The game stops running under any of 3 conditions</p>
+<ul>
+  <li>All players have left the game</li>
+  <li>A server shutdown was requested from the game page</li>
+  <li>A game wide server migration was issued (basically server shutdown and teleport)</li>
+</ul>
+
+<p>When inside of studio you’re always alone, thus if you leave the game, the server will immediately kill itself since the last player left.</p>
+
+<h3 id="asynchronous">Asynchronous</h3>
+<p>It’s important to remember that requests to the datastores are made asychronously, it takes time to complete them, they’re not done just immediately.<br />
+Knowing that the game immediately exits after the last player has left and that a datastore request takes time to complete, it’s obvious that the server shuts down before the datastore request can finish, at this point is when dataloss occurs.</p>
+
+<h3 id="how-to-fix-it">How to fix it?</h3>
+<p>Roblox provides a way that you can run code before the server immediately exits, game:BindToClose, you can bind any amount of functions to right before the game closes, these functions can run for at most 30 seconds before the server kills itself anyway.<br />
+The way we use this is to save the data for all remaining players to make sure everything is saved before we exit the server.</p>
+
+<p>Example:</p>
+<pre><code class="language-lua">function SaveData(player)
+  -- implement your saving logic here
+end
+
+game.Players.PlayerRemoving:Connect(SaveData)
+game:BindToClose(function()
+  for _, player in ipairs(game.Players:GetPlayers()) do
+    SaveData(player)
+  end
+end)
+</code></pre>
+
+<h5 id="i-get-a-weird-warning-in-the-console-saying-datastore-request-was-added-to-the-queue">I get a weird warning in the console saying “Datastore request was added to the queue”.</h5>
+
+<p>This is because you’re making two simultaneous write requests, 1 issued by PlayerRemoving and the other one issued by BindToClose. You can safely ignore this warning because Roblox can only write to the same datastore key every 6 seconds anyway.</p>
+
+
+<hr />
+
+<h6>Author: Thodor12</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 26 May 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

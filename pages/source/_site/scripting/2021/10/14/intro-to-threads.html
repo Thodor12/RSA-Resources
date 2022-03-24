@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,maximum-scale=2" name="viewport">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+
+        <!-- Init hljs -->
+        <script>
+            hljs.highlightAll();
+            hljs.initLineNumbersOnLoad();
+        </script>
+
+        
+            <title>Intro to threads | Roblox Development Assistance - Resources</title>
+        
+        <!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Intro to threads" />
+<meta name="author" content="Pog Chonk" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads." />
+<meta property="og:description" content="There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads." />
+<meta property="og:site_name" content="Roblox Development Assistance - Resources" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-14T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Intro to threads" />
+<script type="application/ld+json">
+{"headline":"Intro to threads","dateModified":"2021-10-14T00:00:00+02:00","datePublished":"2021-10-14T00:00:00+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/10/14/intro-to-threads.html"},"author":{"@type":"Person","name":"Pog Chonk"},"@type":"BlogPosting","url":"/scripting/2021/10/14/intro-to-threads.html","description":"There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    </head>
+
+    <body class="bg-dark">
+        <header class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">Roblox Development Assistance - Resources</h1>
+                <h2 class="text-white fw-light fs-4">
+                    <a href="https://discord.com/invite/pHhuTHUPbm" target="_blank" class="text-decoration-none">Join our Discord!</a>
+                </h2>
+            </div>
+        </header>
+        <main class="pt-5 pb-5 bg-light">
+            <div class="container">
+                <h2>Intro to threads</h2>
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+
+<hr />
+
+<p>There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.</p>
+
+<p>Let’s start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM (<a href="https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines" target="_blank">Virtual Machine</a>).</p>
+
+<h3 id="how-do-threads-work">How do threads work?</h3>
+
+<p>In Lua, threads are ran concurrently not in parallel. This is the biggest misconception. Well, what’s the difference?</p>
+
+<p><strong>Concurrent Execution</strong>: Execution of a thread at a single time while being able to switch thread execution.<br />
+<strong>Parallel Execution</strong>: Execution of two or more threads at a single time.</p>
+
+<p>Lua being Lua, it is single-threaded, running 1 thread at a time. Though, it seems as if it is running multiple threads at a time because of how fast its execution is. This is all done by internal magic. The internal magic relies on a “queue” of threads.</p>
+
+<p>The first thread gets thread execution and executes until it <em>yields</em>, when it yields it pauses thread execution for that thread and throws it in the back of the line. Then the next thread comes up and starts executing. This process is repeated until all threads have finished executing, or pretty much when all threads have “died”.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Multithreaded_process.svg" alt="Single threaded execution" /></p>
+
+<p>In this example you can see that <code>Thread #1</code> was executing, it yielded, then passed execution over to <code>Thread #2</code>, it yielded or finished executing (died), and then passed execution back over to <code>Thread #1</code> to finish executing.</p>
+
+<h6 id="fun-fact-roblox-has-implemented-a-beta-stage-of-their-multithreaded-attempts-using-the-actor-model">Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the <a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Actor Model</a>.</h6>
+
+<h3 id="how-do-you-make-and-run-a-thread">How do you make and run a thread?</h3>
+
+<p>In Luau, there are multiple ways of creating and running threads. In our case, we’re going to focus on <a href="https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine" target="_blank">coroutines</a>.</p>
+
+<p>Coroutines are the most common ways of creating a thread.
+Simply by:</p>
+
+<pre><code class="language-lua">coroutine.create(function()
+    print("Hello World!")
+end)
+</code></pre>
+
+<p>Now, this only created the thread; it hasn’t executed the thread yet.
+To do this, we can use <code>task.spawn</code> or <code>coroutine.resume</code>.</p>
+
+<pre><code class="language-lua">local thread = coroutine.create(function()
+    print("Hello World!")
+end)
+
+coroutine.resume(thread) --&gt; Hello World!
+-- OR
+task.spawn(thread)       --&gt; Hello World!
+</code></pre>
+
+<p><strong>Tip</strong>: With <code>task.spawn</code>, you don’t <em>need</em> a thread, you can pass a function as well.</p>
+
+<pre><code class="language-lua">task.spawn(function()
+    print("Hello World") --&gt; Hello World!
+end)
+</code></pre>
+
+<p>The difference here is that <code>coroutine.resume</code> is native to Vanilla Lua and that <code>task.spawn</code> communicates directly with the task scheduler and runs at 60hz.</p>
+
+<p>There is a second method using coroutines, <code>coroutine.wrap</code>, the only thing with this function is that it propagates errors to the output coming from the calling thread which terminates the calling thread instead of the created thread.</p>
+
+<p>E.x.</p>
+
+<pre><code class="language-lua">coroutine.wrap(function()
+    print("Hello World!") --&gt; Hello World!
+end)()
+</code></pre>
+
+<p>You might be asking why are there two parentheses <code>()</code> at the end? Well, <code>coroutine.wrap</code> returns a function, more specifically a closure of the created thread which can be called to resume the thread.</p>
+
+<p>Which you can then do..</p>
+
+<pre><code class="language-lua">local closure = coroutine.wrap(function()
+    while true do
+        print("Hello World!")
+        coroutine.yield()
+    end
+end)
+
+closure() --&gt; Hello World!
+closure() --&gt; Hello World!
+closure() --&gt; Hello World!
+</code></pre>
+
+<p>Now, you might be asking “what is <code>coroutine.yield()</code> and why is it there?”</p>
+
+<p>Well, the function name itself is self-explanatory. It will just yield the thread it was called in. This means that our thread is now <code>suspended</code> not <code>dead</code>. We do this because you cannot resume a dead thread. Once a thread is dead, it cannot be “revived” or resumed. Suspended threads, however, can by either calling the closure from <code>coroutine.wrap</code> or calling <code>coroutine.resume</code> passing in your thread.</p>
+
+<p>When a yielded thread becomes resumed, either by Roblox or manually, it will resume where it was yielded.<br />
+So in our case:</p>
+
+<pre><code class="language-lua">local thread = coroutine.create(function()
+    while true do
+        print("Hello World!")
+        coroutine.yield() --// When thread is resumed, the thread execution will start here from where it was yielded.
+    end
+end)
+
+coroutine.resume(thread) --&gt; Hello World!
+coroutine.resume(thread) --&gt; Hello World!
+coroutine.resume(thread) --&gt; Hello World!
+</code></pre>
+
+<h3 id="why-multiple-threads-in-one-script">Why multiple threads in one script?</h3>
+
+<p>Threads are useful for when you want blocking code to execute differently from the rest of your code. An example could be an infite <code>while true do</code> loop that constantly checks for a condition while the rest of your executes normally, not being blocked.</p>
+
+<p>E.x.</p>
+
+<pre><code class="language-lua">local a = 0
+
+local blockingCode = coroutine.create(function()
+    while true do
+        if a &gt; 10 then
+            print("Not there yet")
+        else
+            print("We're here!")
+        end
+        a += 1
+        task.wait() -- task library's supersede of wait()
+    end
+end)
+
+task.spawn(blockingCode)
+
+--... // Rest of this code runs, while the "blockingCode" thread is yielding.
+-- The "blockingCode" thread will resume execution whenever the main thread finishes its execution.
+</code></pre>
+
+
+<hr />
+
+<h6>Author: Pog Chonk</h6>
+<h6>Category: Scripting</h6>
+<h6>Date: 14 October 2021</h6>
+
+<hr />
+
+<h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
+            </div>
+        </main>
+        <footer class="bg-dark">
+            <div class="container pt-5 pb-5">
+                <span class="text-light">If you wish to contribute, make a
+                    <a class="link-light" href="https://github.com/PogChonk/RSA-Resources/pulls" target="_blank">Pull Request</a>
+                    and Thodor12 or PogChonk will review it.</span>
+            </div>
+        </footer>
+    </body>
+</html>

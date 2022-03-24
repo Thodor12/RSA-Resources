@@ -1,5 +1,9 @@
 title: Roblox Development Assistance - Resources
 invite_link: https://discord.com/invite/pHhuTHUPbm
+
+source: ./source
+destination: ./build
+
 markdown: kramdown
 kramdown:
   syntax_highlighter_opts:
