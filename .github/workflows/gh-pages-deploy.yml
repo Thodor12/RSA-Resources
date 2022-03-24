@@ -22,7 +22,7 @@ jobs:
         run: tar -zcvf sources.tar.gz pages/build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
-        if: job.status == 'success'
+        if: success() && github.ref == 'refs/heads/master'
         with:
           name: Static files
           path: pages/build/
