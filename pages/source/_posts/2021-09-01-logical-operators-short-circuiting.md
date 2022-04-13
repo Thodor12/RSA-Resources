@@ -1,13 +1,17 @@
 ---
 layout: post
 title: Logical operators, and their short circuiting behavior
-category: scripting
+category: Scripting
 author: steve15
+links: [
+    "https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677",
+    "https://luau-lang.org/syntax#if-then-else-expressions"
+]
 ---
 
 A key part into learning how to use pseudo ternaries in Lua(u) is understanding how each part of it works, and this was written especially for that. But, before we get into the workings of logical operators and their short circuiting behavior, the truthyness and falsyness of values needs to be covered first.
 
-### What does it mean for something to be truthy or falsy?
+# What does it mean for something to be truthy or falsy?
 Since the truthyness and falsyness of values in Lua(u) should be understood before diving into the world of logical operators, the following is a brief overview:
 
 - **Falsy** For something to be considered falsy, it has to evaluate to `nil` or `false`. If you're not sure of what `nil` is, it's a data type that represents nothing. The only examples of falsy values are `nil` and `false`.
@@ -16,7 +20,7 @@ Since the truthyness and falsyness of values in Lua(u) should be understood befo
 
 Do keep in mind that **the truthyness and falsyness of values vary depending on the programming language you’re working with**. That is, a value considered truthy in one programming language may be falsy in another and vice versa.
 
-### What are the logical operators?
+# What are the logical operators?
 Usually, an operator has at least one value it operates on, which are its operands. For example, in the expression `1 + 14`, `1` and `14` are the operands. And if you aren't already aware, there's three logical operators you can work with:
 
 - `<firstOperand> or <secondOperand>` The logical `or` operator operates on two operands. `or` **only wants one of its operands to be truthy**. If the `<firstOperand>` is truthy, then it's evaluated and returned, without evaluating the `<secondOperand>`. However, if the `<firstOperand>` is falsy, then the `<secondOperand>` is evaluated and returned. Here's some examples:
@@ -65,7 +69,7 @@ print(not nil) -- Prints true because nil is falsy.
 print(not (not (false and 15)))
 ```
 
-### Example usage of NOT
+# Example usage of NOT
 Let’s say you have a `guiObject` which you want to toggle its `Visible` property’s value on and off each time a `guiButton` is clicked. A naive solution would be:
 
 ```lua
@@ -112,13 +116,15 @@ guiObject.Visible = true
 
 So as you click the `guiButton`, this pattern repeats.
 
-### Short circuiting with logical operators
+# Short circuiting with logical operators
 
 As mentioned earlier, when the `<firstOperand>` of `or` is truthy, it’s evaluated and returned, **without evaluating the `<secondOperand>`**. And it was also mentioned, when the `<firstOperand>` of `and` is falsy, it’s evaluated and returned, without evaluating the `<secondOperand>`. This idea of `or` and `and` only evaluating what it needs depending on the truthyness or falsyness of its operands is called **short circuit evaluation** or **short circuiting**, for short. 
 
-An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. That is, [if-elseif statements can also short circuit their conditions.](https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677){:target="_blank"}
+An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, **short circuiting isn’t just limited to them**. That is, [if-elseif statements can also short circuit their conditions.](#link1)
 
-### Pseudo Ternary
+# Pseudo Ternary
+**IMPORTANT UPDATE: Roblox now officially supports ternary like operations, see [here](#link2)**
+
 Some programming languages provide direct support for something called the ternary `?` operator, or ternary, for short. However, Lua(u) doesn’t. Nonetheless, you can think of the ternary as a shorthand, for using if-else statements, that operates on three operands. Here’s its general syntax:
 
 ```lua
@@ -167,16 +173,16 @@ print(x == 15 and "15 is a cool number." or "But this number is cooler.")
 print(part.Anchored and "Anchored" or "Unanchored")
 ```
 
-### Caveats
+# Caveats
 
-#### Why pseudo ternaries won’t always work
+## Why pseudo ternaries won’t always work
 Unfortunately, pseudo ternaries will never work the exact same way as the actual ternary is because when the `<secondOperand>` or `<truthyExpression>` is falsy, the `<thirdOperand>` or `<falsyExpression>` is evaluated and returned which is because of how `or` works.
 
 For this reason, it’s recommended that **when you have a falsy expression in the place of the `<secondOperand>` or `<truthyExpression>` that you use if statements instead.**
 
 As an alternative solution, you can use not to invert the `<secondOperand>` or `<truthyExpression>` so that it’s a truthy expression, as it’s expected to be. However, doing that would only add the complexity of the issue. Therefore, the first solution is better.
 
-#### Pseudo ternaries vs if statements
+## Pseudo ternaries vs if statements
 A lot of the time if statements can be replaced by pseudo ternaries, however, this doesn’t mean that you should always do this. Overusing pseudo ternaries for the sake of reducing the amount of if statements (and for this reason, the amount of lines) is a bad practice to follow.
 
 Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, **your code its readability should generally be prioritized over its size.**

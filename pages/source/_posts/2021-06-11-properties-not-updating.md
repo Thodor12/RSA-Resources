@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Properties not updating
-category: scripting
+category: Scripting
 author: Thodor12
 ---
 

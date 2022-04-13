@@ -1,0 +1,28 @@
+title: Roblox Development Assistance - Resources
+invite_link: https://discord.com/invite/pHhuTHUPbm
+
+source: ./pages/source
+destination: ./pages/build
+
+markdown: kramdown
+kramdown:
+  header_offset: 2
+  syntax_highlighter_opts:
+    disable: true
+plugins:
+  - jekyll-archives
+  - jekyll-autoprefixer
+
+jekyll-archives:
+  enabled:
+    - year
+    - month
+    - categories
+  layouts:
+    year: archive-year
+    month: archive-month
+    category: archive-category
+  permalinks:
+    year: "year/:year/"
+    month: "year/:year/month/:month/"
+    category: "/category/:name/"

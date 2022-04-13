@@ -1,13 +1,17 @@
 ---
 layout: post
 title: CollectionService, how to use it
-category: scripting
+category: Scripting
 author: Thodor12
+links: [
+    "https://developer.roblox.com/en-us/api-reference/class/CollectionService",
+    "https://devforum.roblox.com/t/tag-editor-plugin/101465"
+]
 ---
 
 CollectionService is a really underrated service and not many people seem to know about it, on it's own it honestly doesn't even look that special but when used correctly this service can improve your game tenfold. Theoretically this service can be used in whatever scenario you desire as it's versatility is amazing.
 
-## What does it do?
+# What does it do?
 CollectionService does nothing more than manage **tags**. These tags are just basic strings that can be given to any instance in your game. Through CollectionService you can get, add, remove tags, aswell as getting all instances in the game that have a given tag. This allows you to lookup all instances in a game which contain a given tag and quickly get them back as a table in your script, this can be really helpful in scenarios where you don't want to search through your whole game to find what you're looking for.
 
 ## Examples
@@ -24,8 +28,8 @@ Proper lighting is nice in games, even better if your lights adapt to the day ni
 
 Like this you can think of thousands of possible usecases for CollectionService, there's no end to them.
 
-## How do I start using it?
-Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](https://developer.roblox.com/en-us/api-reference/class/CollectionService){:target="_blank"}.
+# How do I start using it?
+Simple, all you have to do is include the service in your scripts using game:GetService("CollectionService") like you would do for any other service, you can find it's documentation [here](#link1).
 
 Now you might be wondering, how do I actually give these instances tags, well one way is through CollectionService in the command bar like so:
 ```lua
@@ -36,5 +40,5 @@ end
 This would automatically add the tag with `YourTagName` to all the instances you have selected in the explorer window.
 
 However this is not really ideal, it requires a lot of working, requires you to type out the code in the command bar all the time, etc.
-Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](https://devforum.roblox.com/t/tag-editor-plugin/101465){:target="_blank"}.
+Luckily the community isn't stupid and thanks to tiffany352 we have an amazing plugin called the [Tag Editor](#link2).
 This plugin allows you to manage all the tags in your game and easily apply them to whatever instance you want.
