@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Script types | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Script types" />
 <meta name="author" content="Thodor12" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Script types" />
 <script type="application/ld+json">
-{"headline":"Script types","dateModified":"2021-10-09T00:00:00+00:00","datePublished":"2021-10-09T00:00:00+00:00","url":"/studio/2021/10/09/script-types.html","mainEntityOfPage":{"@type":"WebPage","@id":"/studio/2021/10/09/script-types.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"Roblox has multiple different script types, understanding the differences and where you can use them is essential for developing your games.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Thodor12"},"dateModified":"2021-10-09T00:00:00+00:00","datePublished":"2021-10-09T00:00:00+00:00","description":"Roblox has multiple different script types, understanding the differences and where you can use them is essential for developing your games.","headline":"Script types","mainEntityOfPage":{"@type":"WebPage","@id":"/studio/2021/10/09/script-types.html"},"url":"/studio/2021/10/09/script-types.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,9 +55,7 @@
             <div class="container">
                 <h2>Script types</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>Roblox has multiple different script types, understanding the differences and where you can use them is essential for developing your games.</p>
 
 <h3 id="all-script-types">All script types</h3>
@@ -102,27 +101,36 @@ ModuleScripts inherit these restrictions based on what type of script they are r
 
 <h4 id="corescript">CoreScript</h4>
 <p>Although these scripts cannot be created and are managed by Roblox, it’s good to know that they exist because they also come with their own permission level
-and have a more broad API which a lot of them normal scripts cannot access, for example <a href="https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer" target="_blank">CreateLocalPlayer</a>.</p>
+and have a more broad API which a lot of them normal scripts cannot access, for example <a href="#link1">CreateLocalPlayer</a>.</p>
 
 <h3 id="permission-levels">Permission levels</h3>
 <p>Each script type comes with a different set of permissions, this is how the API distinquishes which script is able to use certain services or methods.
 For example only Scripts have access to DataStoreService and HttpService, whereas only LocalScripts can use UserInputService and ContextActionService.</p>
 
-<p>These permission levels can for the most part be found on the API documentation, where sometimes it says “xxxSecurity”. For example on the previously shown <a href="https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer" target="_blank">CreateLocalPlayer</a> page you can see on the top it says “LocalUserSecurity”. This means it can only be called by the core or the command bar. Not inside (Local)Scripts nor plugins.</p>
+<p>These permission levels can for the most part be found on the API documentation, where sometimes it says “xxxSecurity”. For example on the previously shown <a href="#link1">CreateLocalPlayer</a> page you can see on the top it says “LocalUserSecurity”. This means it can only be called by the core or the command bar. Not inside (Local)Scripts nor plugins.</p>
 
-<p>You can find in-depth information about all permission levels here: <a href="https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471" target="_blank">https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471</a></p>
+<p>You can find in-depth information about all permission levels <a href="#link2">here</a>.</p>
 
-<p>Additionally you can find the entire API dump here so you can quickly see the security read &amp; write permissions that are needed for the entire API: <a href="https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json" target="_blank">https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json</a></p>
+<p>Additionally you can find the entire API dump here so you can quickly see the security read &amp; write permissions that are needed for the entire API <a href="#link3">here</a>.</p>
 
+
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer">https://developer.roblox.com/en-us/api-reference/function/Players/CreateLocalPlayer</a></li>
+    
+        <li id="link2"><a href="https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471">https://devforum.roblox.com/t/a-current-explanation-of-normal-identities-and-security-tags/219471</a></li>
+    
+        <li id="link3"><a href="https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json">https://raw.githubusercontent.com/MaximumADHD/Roblox-Client-Tracker/roblox/API-Dump.json</a></li>
+    
+    </ol>
 
 <hr />
-
 <h6>Author: Thodor12</h6>
 <h6>Category: Studio</h6>
 <h6>Date: 09 October 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

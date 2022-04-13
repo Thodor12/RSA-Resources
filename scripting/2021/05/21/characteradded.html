@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Characteradded | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="CharacterAdded" />
 <meta name="author" content="Thodor12" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="CharacterAdded" />
 <script type="application/ld+json">
-{"headline":"CharacterAdded","dateModified":"2021-05-21T00:00:00+00:00","datePublished":"2021-05-21T00:00:00+00:00","url":"/scripting/2021/05/21/characteradded.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/05/21/characteradded.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"Often people use local character = player.Character or player.CharacterAdded:Wait() in order to fetch the character if it exists or wait until it exists. This call however has some indirect consequences that you do not directly notice.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Thodor12"},"dateModified":"2021-05-21T00:00:00+00:00","datePublished":"2021-05-21T00:00:00+00:00","description":"Often people use local character = player.Character or player.CharacterAdded:Wait() in order to fetch the character if it exists or wait until it exists. This call however has some indirect consequences that you do not directly notice.","headline":"CharacterAdded","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/05/21/characteradded.html"},"url":"/scripting/2021/05/21/characteradded.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,9 +55,7 @@
             <div class="container">
                 <h2>CharacterAdded</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>Often people use</p>
 <pre><code class="language-lua">local character = player.Character or player.CharacterAdded:Wait()
 </code></pre>
@@ -112,14 +111,19 @@ if not character then return end
 <p>This will abort the request as soon as it sees that there is no character, instead of waiting until there is a character present.</p>
 
 
-<hr />
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://developer.roblox.com/en-us/api-reference/event/Player/CharacterAdded">https://developer.roblox.com/en-us/api-reference/event/Player/CharacterAdded</a></li>
+    
+    </ol>
 
+<hr />
 <h6>Author: Thodor12</h6>
 <h6>Category: Scripting</h6>
 <h6>Date: 21 May 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

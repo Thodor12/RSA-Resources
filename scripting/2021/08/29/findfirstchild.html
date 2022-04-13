@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Findfirstchild and waitforchild | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="FindFirstChild and WaitForChild" />
 <meta name="author" content="Thodor12" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="FindFirstChild and WaitForChild" />
 <script type="application/ld+json">
-{"headline":"FindFirstChild and WaitForChild","dateModified":"2021-08-29T00:00:00+00:00","datePublished":"2021-08-29T00:00:00+00:00","url":"/scripting/2021/08/29/findfirstchild.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/08/29/findfirstchild.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"There’s some pretty big differences between FindFirstChild and WaitForChild which you have to understand in order to properly use them.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Thodor12"},"dateModified":"2021-08-29T00:00:00+00:00","datePublished":"2021-08-29T00:00:00+00:00","description":"There’s some pretty big differences between FindFirstChild and WaitForChild which you have to understand in order to properly use them.","headline":"FindFirstChild and WaitForChild","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/08/29/findfirstchild.html"},"url":"/scripting/2021/08/29/findfirstchild.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,12 +55,10 @@
             <div class="container">
                 <h2>FindFirstChild and WaitForChild</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>There’s some pretty big differences between <code>FindFirstChild</code> and <code>WaitForChild</code> which you have to understand in order to properly use them.</p>
 
-<h2 id="findfirstchild">FindFirstChild</h2>
+<h3 id="findfirstchild">FindFirstChild</h3>
 <p>When using <code>FindFirstChild</code> you are not guaranteed to actually get a result, this is because it attempts to find the first child with the given name.
 If this child does not exist it returns <code>nil</code>. Note that this method also doesn’t wait for a child to appear. If the child isn’t present at the time <code>FindFirstChild</code> runs
 it’s either just not present at all, or if you assume it has to be present it could be it’s not replicated from the server yet.</p>
@@ -76,7 +75,7 @@ if child ~= nil then
 end
 </code></pre>
 
-<h2 id="waitforchild">WaitForChild</h2>
+<h3 id="waitforchild">WaitForChild</h3>
 <p>Unlike <code>FindFirstChild</code>, <code>WaitForChild</code> is guaranteed to always return an instance, however it yields the current thread until a child with the given name is present.</p>
 
 <p><code>WaitForChild</code> also allows you to pass a number as the second argument which defines the timeout. This means <code>WaitForChild</code> will only wait for an x amount of seconds.
@@ -88,20 +87,22 @@ In some rare cases it’s actually possible that it would take more than 5 secon
 
 <p>Note that this warning is not thrown when you provide the timeout parameter.</p>
 
-<h2 id="api-references">API references</h2>
-<p>You can read more on the individual methods here:<br />
-<a href="https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild" target="_blank">https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild</a><br />
-<a href="https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild" target="_blank">https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild</a></p>
 
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild">https://developer.roblox.com/en-us/api-reference/function/Instance/FindFirstChild</a></li>
+    
+        <li id="link2"><a href="https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild">https://developer.roblox.com/en-us/api-reference/function/Instance/WaitForChild</a></li>
+    
+    </ol>
 
 <hr />
-
 <h6>Author: Thodor12</h6>
 <h6>Category: Scripting</h6>
 <h6>Date: 29 August 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

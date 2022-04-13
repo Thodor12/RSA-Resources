@@ -5,3 +5,12 @@ td.hljs-ln-code { padding-left: 0.5rem; }
 img { max-width: 100%; height: auto; }
 
 .post-list { list-style: none; }
+
+#offsite_links { counter-reset: offsiteLinkCounter; margin-right: 0.5em; padding: 0; }
+#offsite_links li { list-style-type: none; position: relative; margin: 0; transition: background-color 0.1s linear; background-color: transparent; }
+#offsite_links li::before { counter-increment: offsiteLinkCounter; content: counter(offsiteLinkCounter) "."; margin-right: 0.5em; transition: background-color 0.1s linear; background-color: transparent; }
+#offsite_links li.highlight { background-color: #FEF7B2; }
+#offsite_links li.highlight::before { background-color: #FEF7B2; }
+
+blockquote { display: flex; flex-direction: column; justify-content: space-around; background: #f9f9f9; border-left: 0.5em solid #ccc; margin: 1em 0.5em; padding: 0.5rem; }
+blockquote > * { margin: 0; }

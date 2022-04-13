@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Service usages | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Service usages" />
 <meta name="author" content="Thodor12" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Service usages" />
 <script type="application/ld+json">
-{"headline":"Service usages","dateModified":"2022-01-14T00:00:00+00:00","datePublished":"2022-01-14T00:00:00+00:00","url":"/studio/2022/01/14/service-usages.html","mainEntityOfPage":{"@type":"WebPage","@id":"/studio/2022/01/14/service-usages.html"},"author":{"@type":"Person","name":"Thodor12"},"@type":"BlogPosting","description":"The explorer in Roblox Studio contains a lot of “top level services”, all of those services have a specific function and are sometimes not used correctly. I’m going over all these services and define what they are supposed to be used for.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Thodor12"},"dateModified":"2022-01-14T00:00:00+00:00","datePublished":"2022-01-14T00:00:00+00:00","description":"The explorer in Roblox Studio contains a lot of “top level services”, all of those services have a specific function and are sometimes not used correctly. I’m going over all these services and define what they are supposed to be used for.","headline":"Service usages","mainEntityOfPage":{"@type":"WebPage","@id":"/studio/2022/01/14/service-usages.html"},"url":"/studio/2022/01/14/service-usages.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,9 +55,7 @@
             <div class="container">
                 <h2>Service usages</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>The explorer in Roblox Studio contains a lot of “top level services”, all of those services have a specific function and are sometimes not used correctly.
 I’m going over all these services and define what they are supposed to be used for.</p>
 
@@ -71,13 +70,13 @@ in the actual game.</p>
 <p>This container holds all information about the game it’s lighting information, back in the day this service was often used to store random pieces of game information, however in present day we have <a href="#replicatedstorage">ReplicatedStorage</a> for this.
 The only things that should be stored in <code>Lighting</code> are:</p>
 <ul>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/Sky">Sky</a></li>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/Atmosphere">Atmosphere</a></li>
-  <li><a href="https://developer.roblox.com/en-us/articles/post-processing-effects">PostProcessingEffects</a></li>
+  <li><a href="#link1">Sky</a></li>
+  <li><a href="#link2">Atmosphere</a></li>
+  <li><a href="#link3">PostProcessingEffects</a></li>
 </ul>
 
 <h3 id="materialservice">MaterialService</h3>
-<p>This service is part of the <a href="https://devforum.roblox.com/t/1583158">Custom Materials API</a>. <strong>Note that this is currently in BETA and does not work in live games</strong></p>
+<p>This service is part of the <a href="#link21">Custom Materials API</a>. <strong>Note that this is currently in BETA and does not work in live games</strong></p>
 
 <p>This should be used to insert custom materials you want to use in your game.</p>
 
@@ -99,10 +98,10 @@ The only things that should be stored in <code>Lighting</code> are:</p>
 </ul>
 
 <h3 id="serverscriptservice">ServerScriptService</h3>
-<p>This service is used to hold all of your <a href="https://developer.roblox.com/en-us/api-reference/class/Script">Scripts</a> that have to run.
+<p>This service is used to hold all of your <a href="#link4">Scripts</a> that have to run.
 I’m not going deep into whether you should put your scripts into here or in the <a href="#workspace">Workspace</a>, but my recommendation is keep anything that doesn’t have to interact with the game inside <code>ServerScriptService</code> and anything related to the physical world (e.x. Touched interactions) inside <a href="#workspace">Workspace</a>.</p>
 
-<p>You can also store all of the <a href="https://developer.roblox.com/en-us/api-reference/class/ModuleScript">ModuleScripts</a> in here, <a href="#serverstorage">ServerStorage</a> or <a href="#replicatedstorage">ReplicatedStorage</a> if you want but again this is a design choice, just keep in mind how your module itself replicates based on the service it’s in.</p>
+<p>You can also store all of the <a href="#link5">ModuleScripts</a> in here, <a href="#serverstorage">ServerStorage</a> or <a href="#replicatedstorage">ReplicatedStorage</a> if you want but again this is a design choice, just keep in mind how your module itself replicates based on the service it’s in.</p>
 
 <h3 id="serverstorage">ServerStorage</h3>
 <p>This service is your general “dump” container, you can store anything you want in here. Note that this service unlike <a href="#replicatestorage">ReplicatedStorage</a> is available to <strong>only to the server</strong>.</p>
@@ -114,55 +113,55 @@ I’m not going deep into whether you should put your scripts into here or in th
 </ul>
 
 <h3 id="startergui">StarterGui</h3>
-<p>This container is used to store all of the <a href="https://developer.roblox.com/en-us/articles/Intro-to-GUIs">GUIs</a> your game uses. These are:</p>
+<p>This container is used to store all of the <a href="#link7">GUIs</a> your game uses. These are:</p>
 <ul>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/ScreenGui">ScreenGui</a></li>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/BillboardGui">BillboardGui</a></li>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/SurfaceGui">SurfaceGui</a></li>
+  <li><a href="#link8">ScreenGui</a></li>
+  <li><a href="#link9">BillboardGui</a></li>
+  <li><a href="#link10">SurfaceGui</a></li>
 </ul>
 
-<p>Nothing else should be put into this container, often people store <a href="https://developer.roblox.com/en-us/api-reference/class/LocalScript">LocalScripts</a> in here aswell but we have <a href="#starterplayerscripts">StarterPlayerScripts</a> for this.</p>
+<p>Nothing else should be put into this container, often people store <a href="#link6">LocalScripts</a> in here aswell but we have <a href="#starterplayerscripts">StarterPlayerScripts</a> for this.</p>
 
-<p>Note: The contents are cloned to <code>Players/&lt;Player&gt;/PlayerGui</code></p>
+<p>Note: The contents are cloned to <code>Players/{Player}/PlayerGui</code></p>
 
 <h3 id="starterpack">StarterPack</h3>
 <p>This container holds all of the tools that <strong>all players</strong> obtain when they spawn in. Therefore this container should only contain tools, nothing else.</p>
 
-<p>There’s also a subfolder inside the <a href="https://developer.roblox.com/en-us/api-reference/class/Player">Player</a> called <code>StarterGear</code>, this is used in combination with <code>StarterPack</code> and is able to provide <strong>player specific</strong> gear.</p>
+<p>There’s also a subfolder inside the <a href="#link11">Player</a> called <code>StarterGear</code>, this is used in combination with <code>StarterPack</code> and is able to provide <strong>player specific</strong> gear.</p>
 
-<p>Note: The contents are cloned to <code>Players/&lt;Player&gt;/Backpack</code></p>
+<p>Note: The contents are cloned to <code>Players/{Player}/Backpack</code></p>
 
 <h3 id="starterplayer">StarterPlayer</h3>
 <p>This service accomodates two subfolders which have two respective tasks, however this service itself also has a couple of functions. Firstly it defines all of the settings related to players when they spawn in, for example camera settings, standard walking speed and jump power, movement modes and much more.</p>
 
 <p>Additionally you can also insert two instances into here.</p>
 <ul>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/Humanoid">Humanoid</a> (Specifically named <code>StarterHumanoid</code>, used as the default <code>Humanoid</code> instance inside characters)</li>
-  <li><a href="https://developer.roblox.com/en-us/api-reference/class/Model">Model</a> (Specifically named <code>StarterCharacter</code>, used as the default character model)</li>
+  <li><a href="#link12">Humanoid</a> (Specifically named <code>StarterHumanoid</code>, used as the default <code>Humanoid</code> instance inside characters)</li>
+  <li><a href="#link13">Model</a> (Specifically named <code>StarterCharacter</code>, used as the default character model)</li>
 </ul>
 
 <h4 id="starterplayerscripts">StarterPlayerScripts</h4>
-<p>This is a subservice of <a href="#starterplayer">StarterPlayer</a> and contains <a href="https://developer.roblox.com/en-us/api-reference/class/LocalScript">LocalScripts</a> which start to run when the player joins the game.</p>
+<p>This is a subservice of <a href="#starterplayer">StarterPlayer</a> and contains <a href="#link6">LocalScripts</a> which start to run when the player joins the game.</p>
 
-<p>Note: The contents are cloned to <code>Players/&lt;Player&gt;/PlayerScripts</code></p>
+<p>Note: The contents are cloned to <code>Players/{Player}/PlayerScripts</code></p>
 
 <h4 id="startercharacterscripts">StarterCharacterScripts</h4>
-<p>This is a subservice of <a href="#starterplayer">StarterPlayer</a> and contains <a href="https://developer.roblox.com/en-us/api-reference/class/LocalScript">LocalScripts</a> which start to run everytime you respawn.</p>
+<p>This is a subservice of <a href="#starterplayer">StarterPlayer</a> and contains <a href="#link6">LocalScripts</a> which start to run everytime you respawn.</p>
 
-<p>Note: The contents are cloned to <code>Workspace/&lt;Player&gt;</code> (the player character)</p>
+<p>Note: The contents are cloned to <code>Workspace/{Player}</code> (the player character)</p>
 
 <h3 id="teams">Teams</h3>
-<p>This service it’s sole purpose is to define <a href="https://developer.roblox.com/en-us/api-reference/class/Team">Teams</a>. Teams subdivide the players into groups of players. Nothing else should be put into this service.</p>
+<p>This service it’s sole purpose is to define <a href="#link14">Teams</a>. Teams subdivide the players into groups of players. Nothing else should be put into this service.</p>
 
 <h3 id="soundscape">SoundScape</h3>
 <p>This service contains sounds for the game that play independently of the <a href="#workspace">Workspace</a>, for example this can be used for cinematic background music that plays regardless of where you are on the map.</p>
 
-<p>You can insert <a href="https://developer.roblox.com/en-us/api-reference/class/SoundGroup">SoundGroups</a> and <a href="https://developer.roblox.com/en-us/api-reference/class/Sound">Sounds</a> into here, <a href="https://developer.roblox.com/en-us/api-reference/class/SoundGroup">SoundGroups</a> are used to control settings like the Volume of all <a href="https://developer.roblox.com/en-us/api-reference/class/Sound">Sounds</a> directly below it.</p>
+<p>You can insert <a href="#link17">SoundGroups</a> and <a href="#link15">Sounds</a> into here, <a href="#link17">SoundGroups</a> are used to control settings like the Volume of all <a href="#link15">Sounds</a> directly below it.</p>
 
-<p>Every <a href="https://developer.roblox.com/en-us/api-reference/class/Sound">Sound</a> and <a href="https://developer.roblox.com/en-us/api-reference/class/SoundGroup">SoundGroup</a> is then able to include one or more <a href="https://developer.roblox.com/en-us/api-reference/class/SoundEffect">SoundEffects</a>.</p>
+<p>Every <a href="#link15">Sound</a> and <a href="#link17">SoundGroup</a> is then able to include one or more <a href="#link16">SoundEffects</a>.</p>
 
 <h3 id="chat">Chat</h3>
-<p>This service is used to modify/extend the <a href="https://developer.roblox.com/en-us/articles/Lua-Chat-System">Lua Chat System</a>.</p>
+<p>This service is used to modify/extend the <a href="#link18">Lua Chat System</a>.</p>
 
 <p>Normally you shouldn’t have to edit anything inside of here as the chat modules are all inserted at runtime, you can however copy the chat system and manually place it inside <code>Chat</code> in order to fork it and make changes, do note that this means you will lose out on any updates Roblox makes to it.</p>
 
@@ -180,7 +179,7 @@ You can insert these folders into the <code>Chat</code> and then provide custom 
 <p>This only appears in Team Create instances and is only used to connect developers together to enable them to build together, this service can be ignored otherwise.</p>
 
 <h4 id="localizationservice">LocalizationService</h4>
-<p>This service can be used to insert <a href="https://developer.roblox.com/en-us/api-reference/class/LocalizationTable">LocalizationTables</a>. These tables can either be manually uploaded through Studio but the intended use is to use the <a href="https://developer.roblox.com/en-us/articles/Introduction-to-Localization-on-Roblox">localization portal</a> in the website.</p>
+<p>This service can be used to insert <a href="#link20">LocalizationTables</a>. These tables can either be manually uploaded through Studio but the intended use is to use the <a href="#link19">localization portal</a> in the website.</p>
 
 <h4 id="testservice">TestService</h4>
 <p>This service is used by Roblox Engineers to perform analytical testing on the game. It can be used by developers but the functionality is very limited.
@@ -192,14 +191,59 @@ The idea is you insert scripts into TestService which can be executed to check i
 <p>Note that if you want to insert anything into the explorer you can use the plus symbol next to whatever you’re trying to insert to and Roblox will give you one or more recommendations to insert into the given container, keep an eye on this as this will help you find the correct place to store your instances in.</p>
 
 
-<hr />
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://developer.roblox.com/en-us/api-reference/class/Sky">https://developer.roblox.com/en-us/api-reference/class/Sky</a></li>
+    
+        <li id="link2"><a href="https://developer.roblox.com/en-us/api-reference/class/Atmosphere">https://developer.roblox.com/en-us/api-reference/class/Atmosphere</a></li>
+    
+        <li id="link3"><a href="https://developer.roblox.com/en-us/articles/post-processing-effects">https://developer.roblox.com/en-us/articles/post-processing-effects</a></li>
+    
+        <li id="link4"><a href="https://developer.roblox.com/en-us/api-reference/class/Script">https://developer.roblox.com/en-us/api-reference/class/Script</a></li>
+    
+        <li id="link5"><a href="https://developer.roblox.com/en-us/api-reference/class/ModuleScript">https://developer.roblox.com/en-us/api-reference/class/ModuleScript</a></li>
+    
+        <li id="link6"><a href="https://developer.roblox.com/en-us/api-reference/class/LocalScript">https://developer.roblox.com/en-us/api-reference/class/LocalScript</a></li>
+    
+        <li id="link7"><a href="https://developer.roblox.com/en-us/articles/Intro-to-GUIs">https://developer.roblox.com/en-us/articles/Intro-to-GUIs</a></li>
+    
+        <li id="link8"><a href="https://developer.roblox.com/en-us/api-reference/class/ScreenGui">https://developer.roblox.com/en-us/api-reference/class/ScreenGui</a></li>
+    
+        <li id="link9"><a href="https://developer.roblox.com/en-us/api-reference/class/BillboardGui">https://developer.roblox.com/en-us/api-reference/class/BillboardGui</a></li>
+    
+        <li id="link10"><a href="https://developer.roblox.com/en-us/api-reference/class/SurfaceGui">https://developer.roblox.com/en-us/api-reference/class/SurfaceGui</a></li>
+    
+        <li id="link11"><a href="https://developer.roblox.com/en-us/api-reference/class/Player">https://developer.roblox.com/en-us/api-reference/class/Player</a></li>
+    
+        <li id="link12"><a href="https://developer.roblox.com/en-us/api-reference/class/Humanoid">https://developer.roblox.com/en-us/api-reference/class/Humanoid</a></li>
+    
+        <li id="link13"><a href="https://developer.roblox.com/en-us/api-reference/class/Model">https://developer.roblox.com/en-us/api-reference/class/Model</a></li>
+    
+        <li id="link14"><a href="https://developer.roblox.com/en-us/api-reference/class/Team">https://developer.roblox.com/en-us/api-reference/class/Team</a></li>
+    
+        <li id="link15"><a href="https://developer.roblox.com/en-us/api-reference/class/Sound">https://developer.roblox.com/en-us/api-reference/class/Sound</a></li>
+    
+        <li id="link16"><a href="https://developer.roblox.com/en-us/api-reference/class/SoundEffect">https://developer.roblox.com/en-us/api-reference/class/SoundEffect</a></li>
+    
+        <li id="link17"><a href="https://developer.roblox.com/en-us/api-reference/class/SoundGroup">https://developer.roblox.com/en-us/api-reference/class/SoundGroup</a></li>
+    
+        <li id="link18"><a href="https://developer.roblox.com/en-us/articles/Lua-Chat-System">https://developer.roblox.com/en-us/articles/Lua-Chat-System</a></li>
+    
+        <li id="link19"><a href="https://developer.roblox.com/en-us/articles/Introduction-to-Localization-on-Roblox">https://developer.roblox.com/en-us/articles/Introduction-to-Localization-on-Roblox</a></li>
+    
+        <li id="link20"><a href="https://developer.roblox.com/en-us/api-reference/class/LocalizationTable">https://developer.roblox.com/en-us/api-reference/class/LocalizationTable</a></li>
+    
+        <li id="link21"><a href="https://devforum.roblox.com/t/1583158">https://devforum.roblox.com/t/1583158</a></li>
+    
+    </ol>
 
+<hr />
 <h6>Author: Thodor12</h6>
 <h6>Category: Studio</h6>
 <h6>Date: 14 January 2022</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

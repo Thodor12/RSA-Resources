@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>The difference between nil and "void" | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="The difference between nil and “void”" />
 <meta name="author" content="artblart" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="The difference between nil and “void”" />
 <script type="application/ld+json">
-{"headline":"The difference between nil and “void”","dateModified":"2021-09-28T00:00:00+00:00","datePublished":"2021-09-28T00:00:00+00:00","url":"/scripting/2021/09/28/diff-nil-void.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/09/28/diff-nil-void.html"},"author":{"@type":"Person","name":"artblart"},"@type":"BlogPosting","description":"A common misconception in Lua is that functions have an implicit return value. This is not true. Functions have an implicit return instruction, meaning a function will always return after execution even if no return is specified. This implicit return instruction will never carry any value.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"artblart"},"dateModified":"2021-09-28T00:00:00+00:00","datePublished":"2021-09-28T00:00:00+00:00","description":"A common misconception in Lua is that functions have an implicit return value. This is not true. Functions have an implicit return instruction, meaning a function will always return after execution even if no return is specified. This implicit return instruction will never carry any value.","headline":"The difference between nil and “void”","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/09/28/diff-nil-void.html"},"url":"/scripting/2021/09/28/diff-nil-void.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,9 +55,7 @@
             <div class="container">
                 <h2>The difference between nil and "void"</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>A common misconception in Lua is that functions have an implicit return value. This is not true. Functions have an implicit return <em>instruction</em>, meaning a function will always return after execution even if no return is specified. This implicit return instruction will never carry any value.</p>
 
 <p>This is not to be confused with <code>nil</code>, however. For the sake of explanation, we will call this complete absence of value <code>void</code>. The source code for Lua 5.1 refers to it as <code>None</code> but <code>void</code> is a much more common term in the world of programming.</p>
@@ -93,13 +92,10 @@ table.insert(t, returnsVoid()) --&gt; this will error during runtime because tab
 
 
 <hr />
-
 <h6>Author: artblart</h6>
 <h6>Category: Scripting</h6>
 <h6>Date: 28 September 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

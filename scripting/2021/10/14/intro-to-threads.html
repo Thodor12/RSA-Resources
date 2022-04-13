@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Intro to threads | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Intro to threads" />
 <meta name="author" content="Pog Chonk" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Intro to threads" />
 <script type="application/ld+json">
-{"headline":"Intro to threads","dateModified":"2021-10-14T00:00:00+00:00","datePublished":"2021-10-14T00:00:00+00:00","url":"/scripting/2021/10/14/intro-to-threads.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/10/14/intro-to-threads.html"},"author":{"@type":"Person","name":"Pog Chonk"},"@type":"BlogPosting","description":"There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Pog Chonk"},"dateModified":"2021-10-14T00:00:00+00:00","datePublished":"2021-10-14T00:00:00+00:00","description":"There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.","headline":"Intro to threads","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/10/14/intro-to-threads.html"},"url":"/scripting/2021/10/14/intro-to-threads.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,12 +55,10 @@
             <div class="container">
                 <h2>Intro to threads</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>There’s a lot of misconceptions about threads in Lua(u). This article will explain the major parts that you need to know about threads.</p>
 
-<p>Let’s start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM (<a href="https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines" target="_blank">Virtual Machine</a>).</p>
+<p>Let’s start off by what is a thread? You can think of a thread as a piece of paper and on this paper is instructions. These instructions are the code you wrote which then the employee will execute these instructions. The employee in our case is our VM (<a href="#link1">Virtual Machine</a>).</p>
 
 <h3 id="how-do-threads-work">How do threads work?</h3>
 
@@ -76,11 +75,11 @@
 
 <p>In this example you can see that <code>Thread #1</code> was executing, it yielded, then passed execution over to <code>Thread #2</code>, it yielded or finished executing (died), and then passed execution back over to <code>Thread #1</code> to finish executing.</p>
 
-<h6 id="fun-fact-roblox-has-implemented-a-beta-stage-of-their-multithreaded-attempts-using-the-actor-model">Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the <a href="https://en.wikipedia.org/wiki/Actor_model" target="_blank">Actor Model</a>.</h6>
+<h6 id="fun-fact-roblox-has-implemented-a-beta-stage-of-their-multithreaded-attempts-using-the-actor-model">Fun Fact: Roblox has implemented a beta stage of their multithreaded attempts using the <a href="#link2">Actor Model</a>.</h6>
 
 <h3 id="how-do-you-make-and-run-a-thread">How do you make and run a thread?</h3>
 
-<p>In Luau, there are multiple ways of creating and running threads. In our case, we’re going to focus on <a href="https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine" target="_blank">coroutines</a>.</p>
+<p>In Luau, there are multiple ways of creating and running threads. In our case, we’re going to focus on <a href="#link3">coroutines</a>.</p>
 
 <p>Coroutines are the most common ways of creating a thread.
 Simply by:</p>
@@ -182,14 +181,23 @@ task.spawn(blockingCode)
 </code></pre>
 
 
-<hr />
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines">https://en.wikipedia.org/wiki/Virtual_machine#Process_virtual_machines</a></li>
+    
+        <li id="link2"><a href="https://en.wikipedia.org/wiki/Actor_model">https://en.wikipedia.org/wiki/Actor_model</a></li>
+    
+        <li id="link3"><a href="https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine">https://developer.roblox.com/en-us/api-reference/lua-docs/coroutine</a></li>
+    
+    </ol>
 
+<hr />
 <h6>Author: Pog Chonk</h6>
 <h6>Category: Scripting</h6>
 <h6>Date: 14 October 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>

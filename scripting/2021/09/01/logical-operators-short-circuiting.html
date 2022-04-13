@@ -14,7 +14,8 @@
 
         <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
 
-        <!-- Init hljs -->
+        <script src="/assets/scripts/highlight-offsite-links.js"></script>
+
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
@@ -23,7 +24,7 @@
         
             <title>Logical operators, and their short circuiting behavior | Roblox Development Assistance - Resources</title>
         
-        <!-- Begin Jekyll SEO tag v2.7.1 -->
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="Logical operators, and their short circuiting behavior" />
 <meta name="author" content="steve15" />
@@ -36,7 +37,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Logical operators, and their short circuiting behavior" />
 <script type="application/ld+json">
-{"headline":"Logical operators, and their short circuiting behavior","dateModified":"2021-09-01T00:00:00+00:00","datePublished":"2021-09-01T00:00:00+00:00","url":"/scripting/2021/09/01/logical-operators-short-circuiting.html","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/09/01/logical-operators-short-circuiting.html"},"author":{"@type":"Person","name":"steve15"},"@type":"BlogPosting","description":"A key part into learning how to use pseudo ternaries in Lua(u) is understanding how each part of it works, and this was written especially for that. But, before we get into the workings of logical operators and their short circuiting behavior, the truthyness and falsyness of values needs to be covered first.","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"steve15"},"dateModified":"2021-09-01T00:00:00+00:00","datePublished":"2021-09-01T00:00:00+00:00","description":"A key part into learning how to use pseudo ternaries in Lua(u) is understanding how each part of it works, and this was written especially for that. But, before we get into the workings of logical operators and their short circuiting behavior, the truthyness and falsyness of values needs to be covered first.","headline":"Logical operators, and their short circuiting behavior","mainEntityOfPage":{"@type":"WebPage","@id":"/scripting/2021/09/01/logical-operators-short-circuiting.html"},"url":"/scripting/2021/09/01/logical-operators-short-circuiting.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     </head>
@@ -54,9 +55,7 @@
             <div class="container">
                 <h2>Logical operators, and their short circuiting behavior</h2>
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
-
 <hr />
-
 <p>A key part into learning how to use pseudo ternaries in Lua(u) is understanding how each part of it works, and this was written especially for that. But, before we get into the workings of logical operators and their short circuiting behavior, the truthyness and falsyness of values needs to be covered first.</p>
 
 <h3 id="what-does-it-mean-for-something-to-be-truthy-or-falsy">What does it mean for something to be truthy or falsy?</h3>
@@ -173,9 +172,11 @@ guiObject.Visible = true
 
 <p>As mentioned earlier, when the <code>&lt;firstOperand&gt;</code> of <code>or</code> is truthy, it’s evaluated and returned, <strong>without evaluating the <code>&lt;secondOperand&gt;</code></strong>. And it was also mentioned, when the <code>&lt;firstOperand&gt;</code> of <code>and</code> is falsy, it’s evaluated and returned, without evaluating the <code>&lt;secondOperand&gt;</code>. This idea of <code>or</code> and <code>and</code> only evaluating what it needs depending on the truthyness or falsyness of its operands is called <strong>short circuit evaluation</strong> or <strong>short circuiting</strong>, for short.</p>
 
-<p>An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, <strong>short circuiting isn’t just limited to them</strong>. That is, <a href="https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677" target="_blank">if-elseif statements can also short circuit their conditions.</a></p>
+<p>An important thing to keep in mind is that although this section focuses on short circuiting with the logical operators, <strong>short circuiting isn’t just limited to them</strong>. That is, <a href="#link1">if-elseif statements can also short circuit their conditions.</a></p>
 
 <h3 id="pseudo-ternary">Pseudo Ternary</h3>
+<p><strong>IMPORTANT UPDATE: Roblox now officially supports ternary like operations, see <a href="#link2">here</a></strong></p>
+
 <p>Some programming languages provide direct support for something called the ternary <code>?</code> operator, or ternary, for short. However, Lua(u) doesn’t. Nonetheless, you can think of the ternary as a shorthand, for using if-else statements, that operates on three operands. Here’s its general syntax:</p>
 
 <pre><code class="language-lua">-- &lt;firstOperand&gt; ? &lt;secondOperand&gt; : &lt;thirdOperand&gt;
@@ -235,14 +236,21 @@ print(part.Anchored and "Anchored" or "Unanchored")
 <p>Use pseudo ternaries in places where it would improve the readability of your code to you, your future self and other programmers as well. Because at the end of the day, <strong>your code its readability should generally be prioritized over its size.</strong></p>
 
 
-<hr />
+    <hr />
+    <h2>Links</h2>
+    <ol id="offsite_links">
+    
+        <li id="link1"><a href="https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677">https://devforum.roblox.com/t/does-short-circuiting-an-if-statement-exist-in-lua/234677</a></li>
+    
+        <li id="link2"><a href="https://luau-lang.org/syntax#if-then-else-expressions">https://luau-lang.org/syntax#if-then-else-expressions</a></li>
+    
+    </ol>
 
+<hr />
 <h6>Author: steve15</h6>
 <h6>Category: Scripting</h6>
 <h6>Date: 01 September 2021</h6>
-
 <hr />
-
 <h6><a href="/" class="text-decoration-none">< Back to overview</a></h6>
             </div>
         </main>
